@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 00:39:41 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/05/13 10:32:42 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/05/14 05:49:37 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main( void )
 
 	while (1)
 	{
-		std::cout << "Enter option > ADD | SEARCH | EXIT: ";
+		std::cout << "\nEnter option > ADD | SEARCH | EXIT: ";
 		getline(std::cin, command);
 		if (command == "EXIT" || command == "exit" || command == "e")
 			return (0);

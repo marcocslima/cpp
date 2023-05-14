@@ -6,24 +6,35 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 00:35:43 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/05/12 08:44:04 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/05/14 05:38:34 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-void	Contact::add()
+int	Contact::add()
 {
 	std::cout << "first name: ";
 	getline(std::cin, first_name);
+	if (first_name.empty())
+		return 1;
 	std::cout << "last name: ";
 	getline(std::cin, last_name);
+	if (last_name.empty())
+		return 1;
 	std::cout << "nickname: ";
 	getline(std::cin, nickname);
+	if (nickname.empty())
+		return 1;
 	std::cout << "phone number: ";
 	getline(std::cin, phone_number);
+	if (phone_number.empty())
+		return 1;
 	std::cout << "darkest secret: ";
 	getline(std::cin, darkest_secret);
+	if (darkest_secret.empty())
+		return 1;
+	return 0;
 }
 
 void	display_contact(std::string str)

@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 00:36:10 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/05/11 05:24:43 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/05/14 05:38:56 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Contact
 		std::string	phone_number;
 		std::string	darkest_secret;
 	public:
-		void	add();
+		int		add();
 		void	display(int index) const;
 		void	print() const;
 };
