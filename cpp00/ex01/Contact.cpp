@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 00:35:43 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/05/14 05:38:34 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/05/14 05:52:09 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	Contact::add()
 {
-	std::cout << "first name: ";
+	std::cout << "\nfirst name: ";
 	getline(std::cin, first_name);
 	if (first_name.empty())
 		return 1;
