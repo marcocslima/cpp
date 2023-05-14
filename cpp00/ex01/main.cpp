@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 00:39:41 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/05/14 06:18:30 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/05/14 06:22:57 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main( void )
 		std::cout << "\nEnter option > ADD | SEARCH | EXIT: ";
 		getline(std::cin, command);
 		if (command == "EXIT")
-			return (0);
+			return 0;
 		else if (command == "ADD")
 			phonebook.add();
 		else if (command == "SEARCH")

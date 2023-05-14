@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 00:35:43 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/05/14 06:16:24 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/05/14 06:26:44 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	Contact::display(int index) const
 	display_contact(first_name);
 	display_contact(last_name);
 	display_contact(nickname);
-	std::cout << "\n";
+	std::cout << "\n\n";
 }
 
 void	Contact::print() const
