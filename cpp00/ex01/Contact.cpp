@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 00:35:43 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/05/14 05:52:09 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/05/14 06:16:24 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ void	display_contact(std::string str)
 {
 	std::cout << "|";
 	if (str.length() < 10)
-		std::cout << std::setw(10) << std::right << str;
+		std::cout << std::setw(10) << std::right << str << " ";
 	else
-		std::cout << std::right << str.substr(0, 9) << ".";
+		std::cout << std::setw(10) << std::right << str.substr(0, 9) << ".";
 }
 
 void	Contact::display(int index) const
