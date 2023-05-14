@@ -6,7 +6,7 @@
 #    By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 00:39:21 by mcesar-d          #+#    #+#              #
-#    Updated: 2023/05/04 01:17:41 by mcesar-d         ###   ########.fr        #
+#    Updated: 2023/05/13 10:31:18 by mcesar-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = phonebook
 
 # COMPILATION #
 
-FLAGS = -std=c++98 -Werror -Wextra -Wall
+FLAGS = -g -std=c++98 -Werror -Wextra -Wall
 
 # DELETE #
 

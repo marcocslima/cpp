@@ -6,26 +6,23 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 00:36:32 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/05/12 09:13:31 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/05/14 05:05:19 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <cstdio>
 
-PhoneBook::PhoneBook() : contactId(0) , replaceId( ) {}
+PhoneBook::PhoneBook() : contactId(0) , replaceId(0) {}
 
 void	PhoneBook::add()
 {
-    std::cout << contactId << std::endl;
-	std::cout << replaceId << std::endl;
-	if (contactId == 7)
+	if (contactId > 7)
 	{
-		if (replaceId == 7)
+		if (replaceId > 7)
 			replaceId = 0;
-		else
-			++replaceId;
 		contacts[replaceId].add();
+		++replaceId;
 		return ;
 	}
 	else
@@ -40,7 +37,7 @@ void	PhoneBook::search() const
 	std::string	str;
 	int			index;
 
-	for (int i = 0; i <= contactId; i++)
+	for (int i = 0; i < contactId; i++)
 		contacts[i].display(i);
 	std::cout << "Enter contact id: ";
 	getline(std::cin, str);
