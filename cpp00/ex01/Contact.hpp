@@ -6,13 +6,12 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 00:36:10 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/05/14 05:38:56 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/05/16 07:10:02 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef __CONTACT_H__
 #define __CONTACT_H__
-#include <string>
 #include <iostream>
 #include <iomanip>
 

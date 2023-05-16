@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 00:39:41 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/05/14 06:22:57 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/05/16 06:50:03 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main( void )
 		else if (command == "SEARCH")
 			phonebook.search();
 		else
-			std::cout << "Command not found, accept only > ADD | SEARCH | EXIT.\n";
+			std::cout << "\nCommand not found, accept only > ADD | SEARCH | EXIT.\n";
 	}
 	return 0;
 }
