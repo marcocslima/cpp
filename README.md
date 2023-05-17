@@ -8,13 +8,15 @@ Project Description
 The project is designed to provide hands-on experience with C++ programming concepts and features. It covers various aspects of the language, including object-oriented programming, classes, inheritance, polymorphism, templates, and more. Through a series of practical exercises and assignments, students will have the opportunity to strengthen their understanding of C++ and improve their problem-solving skills.
 
 Getting Started
+
 To get started with this project, follow the steps below:
 
-Clone the repository to your local machine.
-Ensure you have a C++ compiler installed.
-Navigate to the project directory.
-Compile the source code files using the appropriate compiler commands.
-Run the compiled executable to execute the program.
+> Clone the repository to your local machine.
+> Ensure you have a C++ compiler installed.
+> Navigate to the project directory.
+> Compile the source code files using the appropriate compiler commands.
+> Run the compiled executable to execute the program.
+
 Feel free to explore the project's source code and documentation to understand the implementation details and complete the assigned tasks.
 
 Contributing
