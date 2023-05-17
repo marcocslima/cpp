@@ -6,7 +6,7 @@
 #    By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 00:39:21 by mcesar-d          #+#    #+#              #
-#    Updated: 2023/05/17 01:13:36 by mcesar-d         ###   ########.fr        #
+#    Updated: 2023/05/17 01:15:36 by mcesar-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ VPATH = $(SRC_DIR)\
 
 SOURCES =	NewZombie.cpp\
 			RandomChump.cpp\
-			Zombie.cpp
+			Zombie.cpp\
 			main.cpp
 
 # COMPILED_SOURCES #

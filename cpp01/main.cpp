@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 00:05:34 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/05/17 01:02:06 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/05/17 01:19:22 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int main( void ) {
 	delete zombie_h;
 
 	std::cout << "Calling randomChump()." << std::endl;
-	randomChump("mcl");
+	randomChump("MCL");
 	return 0;
 }
