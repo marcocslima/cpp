@@ -1,6 +1,7 @@
 # cpp
 
 CPP School 42 SP Project
+
 This repository contains a C++ project developed as part of the CPP curriculum at School 42 SP. The project aims to introduce and practice the C++ programming language.
 
 Project Description
