@@ -11,15 +11,15 @@ Getting Started
 
 To get started with this project, follow the steps below:
 
-> Clone the repository to your local machine.
+- Clone the repository to your local machine.
 
-> Ensure you have a C++ compiler installed.
+- Ensure you have a C++ compiler installed.
 
-> Navigate to the project directory.
+- Navigate to the project directory.
 
-> Compile the source code files using the appropriate compiler commands.
+- Compile the source code files using the appropriate compiler commands.
 
-> Run the compiled executable to execute the program.
+- Run the compiled executable to execute the program.
 
 Feel free to explore the project's source code and documentation to understand the implementation details and complete the assigned tasks.
 
