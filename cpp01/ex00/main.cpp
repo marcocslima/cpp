@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 00:05:34 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/05/17 05:36:28 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/05/17 05:56:30 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@ int main( void ) {
 	Zombie zombie_stack(name);
 	zombie_stack.announce();
 
-	std::cout << "\nCreating zombie on the heap >>>\n" << std::endl;
+	std::cout << "Creating zombie on the heap >>>\n" << std::endl;
 	std::cout << "Define the Zombie name: ";
 	std::cin >> name;
 	Zombie *zombie_heap = newZombie(name);
 	zombie_heap->announce();
 
-	std::cout << "\nCalling randomChump(), Zombie name = Crazy " << std::endl;
+	std::cout << "Calling randomChump() function, Zombie name = Crazy " << std::endl;
 	randomChump("Crazy");
-	
+
 	delete zombie_heap;
-	
+
 	return 0;
 }
