@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 00:05:34 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/05/17 01:19:22 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/05/17 05:13:50 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,22 @@
 int main( void ) {
 	std::string name;
 
-	std::cout << "Creating zombie on the stack." << std::endl;
-	std::cout << "Define the Zombie name: " << std::flush;
+	std::cout << "\nCreating zombie on the stack." << std::endl;
+	std::cout << "Define the Zombie name: ";
 	std::cin >> name;
+	Zombie zombie_stack(name);
+	zombie_stack.announce();
 
-	Zombie zombie_s(name);
-
-	std::cout << "Creating zombie on the heap." << std::endl;
-	std::cout << "Define the Zombie name: " << std::flush;
+	std::cout << "\nCreating zombie on the heap." << std::endl;
+	std::cout << "Define the Zombie name: ";
 	std::cin >> name;
+	Zombie *zombie_heap = newZombie(name);
+	zombie_heap->announce();
 
-	Zombie *zombie_h = newZombie(name);
-	zombie_h->announce();
-	delete zombie_h;
-
-	std::cout << "Calling randomChump()." << std::endl;
-	randomChump("MCL");
+	std::cout << "\nCalling randomChump(), Zombie name = Crazy " << std::endl;
+	randomChump("Crazy");
+	
+	delete zombie_heap;
+	
 	return 0;
 }
