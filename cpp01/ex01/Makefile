@@ -6,11 +6,11 @@
 #    By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 00:39:21 by mcesar-d          #+#    #+#              #
-#    Updated: 2023/05/18 04:22:47 by mcesar-d         ###   ########.fr        #
+#    Updated: 2023/05/18 04:30:46 by mcesar-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
+NAME = zombies
 
 # LIBRARY #
 
@@ -30,8 +30,7 @@ VPATH = $(SRC_DIR)\
 
 # FILES #
 
-SOURCES =	newZombie.cpp\
-			randomChump.cpp\
+SOURCES =	zombieHorde.cpp\
 			Zombie.cpp\
 			main.cpp
 
