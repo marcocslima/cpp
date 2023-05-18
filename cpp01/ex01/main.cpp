@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 00:05:34 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/05/18 05:54:08 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/05/18 06:00:53 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int main( void ) {
 		zombies[i].announce();
 
 	delete[] zombies;
+
 	return 0;
 }
