@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/19 06:02:32 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/05/20 10:04:53 by mcesar-d         ###   ########.fr       */
+/*   Created: 2023/05/20 11:40:30 by mcesar-d          #+#    #+#             */
+/*   Updated: 2023/05/20 13:20:29 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#ifndef SED_HPP
+#define SED_HPP
 
-int main()
+#include <iostream>
+#include <fstream>
+
+class Sed
 {
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
-	}
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanB jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
-	}
-	return 0;
-}
+	private:
+		std::string _fileIn;
+		std::string _fileOut;
+	public:
+		Sed(std::string file);
+		~Sed();
+		void	replaceStr(std::string s1, std::string s2);
+};
+
+#endif
