@@ -6,11 +6,11 @@
 #    By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 00:39:21 by mcesar-d          #+#    #+#              #
-#    Updated: 2023/05/21 19:21:32 by mcesar-d         ###   ########.fr        #
+#    Updated: 2023/05/21 19:18:29 by mcesar-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombies
+NAME = harl
 
 # LIBRARY #
 
@@ -31,8 +31,7 @@ VPATH = $(SRC_DIR)\
 
 # FILES #
 
-SOURCES =	zombieHorde.cpp\
-			Zombie.cpp\
+SOURCES =	Harl.cpp\
 			main.cpp
 
 # COMPILED_SOURCES #

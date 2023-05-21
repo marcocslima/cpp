@@ -6,7 +6,7 @@
 #    By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 00:39:21 by mcesar-d          #+#    #+#              #
-#    Updated: 2023/05/19 04:44:41 by mcesar-d         ###   ########.fr        #
+#    Updated: 2023/05/21 19:20:57 by mcesar-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ NAME = brain
 
 # COMPILATION #
 
+CC = c++
 FLAGS = -g -std=c++98 -Werror -Wextra -Wall
 
 # DELETE #
@@ -46,7 +47,7 @@ OBJS =	$(addprefix $(OBJ_PATH), $(SOURCES:.c=.o))
 all: $(NAME)
 
 $(NAME) : $(SRCS)
-	c++ $(FLAGS) $(SRCS) -o $(NAME)
+	$(CC) $(FLAGS) $(SRCS) -o $(NAME)
 
 ${OBJ_PATH}%.o:	$(SRC_PATH)%.c
 	@mkdir -p obj
