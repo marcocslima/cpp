@@ -6,7 +6,7 @@
 #    By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 00:39:21 by mcesar-d          #+#    #+#              #
-#    Updated: 2023/05/20 13:27:33 by mcesar-d         ###   ########.fr        #
+#    Updated: 2023/05/21 12:02:42 by mcesar-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = sed
 
 # COMPILATION #
 
-FLAGS = -g -std=c++98 -Werror -Wextra -Wall
+FLAGS = -g -std=c++98 #-Werror -Wextra -Wall
 
 # DELETE #
 
