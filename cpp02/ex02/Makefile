@@ -6,11 +6,11 @@
 #    By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 00:39:21 by mcesar-d          #+#    #+#              #
-#    Updated: 2023/05/23 00:51:01 by mcesar-d         ###   ########.fr        #
+#    Updated: 2023/05/28 02:12:12 by mcesar-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 
+NAME = fixed
 
 # LIBRARY #
 
@@ -31,7 +31,7 @@ VPATH = $(SRC_DIR)\
 
 # FILES #
 
-SOURCES =	.cpp\
+SOURCES =	Fixed.cpp\
 			main.cpp
 
 # COMPILED_SOURCES #

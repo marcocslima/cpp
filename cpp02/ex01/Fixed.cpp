@@ -6,12 +6,11 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 00:13:16 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/05/27 00:17:00 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/05/28 01:30:50 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include <cmath>
 
 Fixed::Fixed(){
 	std::cout << "Default constructor called" << std::endl;
