@@ -6,11 +6,11 @@
 #    By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 00:39:21 by mcesar-d          #+#    #+#              #
-#    Updated: 2023/05/28 20:20:31 by mcesar-d         ###   ########.fr        #
+#    Updated: 2023/05/30 04:10:19 by mcesar-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = claptrap
+NAME = scavtrap
 
 # LIBRARY #
 
@@ -32,6 +32,7 @@ VPATH = $(SRC_DIR)\
 # FILES #
 
 SOURCES =	ClapTrap.cpp\
+			ScavTrap.cpp\
 			main.cpp
 
 # COMPILED_SOURCES #

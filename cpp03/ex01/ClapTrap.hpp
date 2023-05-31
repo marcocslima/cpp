@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 20:17:46 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/05/30 03:17:14 by mcesar-d         ###   ########.fr       */
+/*   Created: 2023/05/28 19:19:03 by mcesar-d          #+#    #+#             */
+/*   Updated: 2023/05/31 04:38:41 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
-int main()
-{
-	ClapTrap clap("Lion");
+#include <iostream>
 
-	clap.attack("Bear");
-	clap.beRepaired(20);
-	clap.takeDamage(10);
+class ClapTrap {
+	protected:
+		std::string		_name;
+		unsigned int	_hitPoint;
+		unsigned int	_energyPoint;
+		unsigned int	_attackDamage;
+	public:
+		ClapTrap(std::string name);
+		~ClapTrap(void);
 
-	return 0;
-}
+		void attack(const std::string& target);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
+};
+
+#endif

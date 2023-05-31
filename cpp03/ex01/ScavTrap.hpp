@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 20:17:46 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/05/30 03:17:14 by mcesar-d         ###   ########.fr       */
+/*   Created: 2023/05/30 03:25:39 by mcesar-d          #+#    #+#             */
+/*   Updated: 2023/05/31 04:35:46 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
+
 #include "ClapTrap.hpp"
 
-int main()
+class ScavTrap : public ClapTrap
 {
-	ClapTrap clap("Lion");
+	public:
+		ScavTrap(std::string name);
+		~ScavTrap();
 
-	clap.attack("Bear");
-	clap.beRepaired(20);
-	clap.takeDamage(10);
+		void attack(const std::string& target);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
+		void guardGate();
+};
 
-	return 0;
-}
+#endif
