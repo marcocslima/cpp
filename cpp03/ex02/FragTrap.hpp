@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 20:17:46 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/05/31 05:30:11 by mcesar-d         ###   ########.fr       */
+/*   Created: 2023/05/30 03:25:39 by mcesar-d          #+#    #+#             */
+/*   Updated: 2023/05/31 05:23:22 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
 
-int main()
+#include "ClapTrap.hpp"
+
+class FragTrap : public ClapTrap
 {
-	ScavTrap scav("Snake");
-	ScavTrap scav2("White Snake");
+	public:
+		FragTrap(std::string name);
+		~FragTrap();
 
-	scav.attack("Lion");
-	scav.beRepaired(20);
-	scav.takeDamage(10);
-	scav.guardGate();
+		void attack(const std::string& target);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
+		void highFivesGuys(void);
+};
 
-	return 0;
-}
+#endif

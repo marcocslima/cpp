@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 20:17:46 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/05/31 05:30:11 by mcesar-d         ###   ########.fr       */
+/*   Created: 2023/05/28 19:19:03 by mcesar-d          #+#    #+#             */
+/*   Updated: 2023/05/31 04:38:41 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
-int main()
-{
-	ScavTrap scav("Snake");
-	ScavTrap scav2("White Snake");
+#include <iostream>
 
-	scav.attack("Lion");
-	scav.beRepaired(20);
-	scav.takeDamage(10);
-	scav.guardGate();
+class ClapTrap {
+	protected:
+		std::string		_name;
+		unsigned int	_hitPoint;
+		unsigned int	_energyPoint;
+		unsigned int	_attackDamage;
+	public:
+		ClapTrap(std::string name);
+		~ClapTrap(void);
 
-	return 0;
-}
+		void attack(const std::string& target);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
+};
+
+#endif
