@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 07:34:26 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/03 18:04:20 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/04 10:09:06 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 int main(void)
 {
+	std::cout << "\n----Testing animals!----\n" << std::endl;
 	const Animal *animal = new Animal();
 	const Animal *dog = new Dog();
 	const Animal *cat = new Cat();
@@ -24,9 +25,18 @@ int main(void)
 	std::cout << "Animal type: " << cat->getType() << std::endl;
 	dog->makeSound();
 	cat->makeSound();
-	animal->makeSound();
 
 	delete animal;
 	delete dog;
 	delete cat;
+
+	std::cout << "\n----Testing wrong animals!----\n" << std::endl;
+	const WrongAnimal *wanimal = new WrongAnimal();
+	const WrongAnimal *wcat = new WrongCat();
+
+	std::cout << "Wrong Animal type: " << wcat->getType() << std::endl;
+	wcat->makeSound();
+
+	delete wanimal;
+	delete wcat;
 }

@@ -6,13 +6,13 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 07:34:40 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/03 17:57:18 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/04 10:11:02 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat(void) : WrongAnimal("WrongCat"){
+WrongCat::WrongCat(void) : WrongAnimal("Wrong Cat"){
 	std::cout << this->_type << " constructor was called!" << std::endl;
 }
 
@@ -21,5 +21,5 @@ WrongCat::~WrongCat(void){
 }
 
 void WrongCat::makeSound(void) const{
-	std::cout << "meowww!" << std::endl;
+	std::cout << "woof woof!" << std::endl;
 }

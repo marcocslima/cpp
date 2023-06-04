@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 07:34:17 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/03 11:20:43 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/04 09:59:19 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ Dog::~Dog(void){
 }
 
 void Dog::makeSound(void) const{
-	std::cout << "woof woof" << std::endl;
+	std::cout << "woof woof!" << std::endl;
 }

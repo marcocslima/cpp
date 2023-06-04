@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 07:34:35 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/03 11:27:26 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/04 10:16:13 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ class WrongAnimal
 	public:
 		WrongAnimal(void);
 		WrongAnimal(std::string type);
-		~WrongAnimal(void);
+		virtual ~WrongAnimal(void);
 
-		void		makeSound(void) const;
-		std::string	getType(void) const;
+		virtual void	makeSound(void) const;
+		std::string		getType(void) const;
 };
 
 #endif

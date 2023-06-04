@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 07:33:57 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/02 08:01:27 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/04 09:59:55 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,6 @@ Animal::Animal(std::string type) : _type(type){
 
 Animal::~Animal(void){
 	std::cout << "Animal destructor was called!" << std::endl;
-}
-
-Animal::Animal(const Animal& obj){
-	std::cout << "Animal copy constructor was called!" << std::endl;
-	*this = obj;
-}
-
-Animal &Animal::operator=(const Animal& obj){
-	std::cout << "Animal assignment operator was called!" << std::endl;
-	if (this != &obj){
-		this->_type = obj._type;
-	}
-	return *this;
 }
 
 void Animal::makeSound(void) const{

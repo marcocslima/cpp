@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 07:34:03 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/02 07:45:07 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/04 09:59:41 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,6 @@ class Animal
 		Animal(void);
 		Animal(std::string type);
 		virtual ~Animal();
-
-		Animal(const Animal &obj);
-		Animal &operator=(const Animal &obj);
 
 		virtual void	makeSound(void) const;
 		std::string		getType(void) const;
