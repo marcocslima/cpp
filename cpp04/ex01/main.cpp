@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 07:34:26 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/04 11:42:45 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/04 12:47:17 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,32 @@
 
 int main(void)
 {
-	std::cout << "\n----Testing animals!----\n" << std::endl;
-	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
 
-	delete meta;
-	delete j;
+	delete j;//should not create a leak
 	delete i;
 
-	std::cout << "\n----Testing wrong animals!----\n" << std::endl;
-	const WrongAnimal* wmeta = new WrongAnimal();
-	const WrongAnimal* wcat = new WrongCat();
+	std::cout << "\n----Testing deep copies!----\n" << std::endl;
 
-	std::cout << "Wrong Animal type: " << wcat->getType() << std::endl;
-	wcat->makeSound();
+	Dog basic;
+	Dog *a = &basic;
+	{
+		Dog tmp = basic;
+		Dog *b = &tmp;
+		tmp.makeSound();
+		basic.makeSound();
+		std::cout << a << std::endl;
+		std::cout << b << std::endl;
+	}
 
-	delete wmeta;
-	delete wcat;
+	std::cout << "\n----Testing create array of animals!----\n" << std::endl;
+
+	const Animal* animals[4] = {new Dog(), new Dog(), new Cat(), new Cat()};
+
+	for ( int i = 0; i < 4; i++ ) {
+		delete animals[i];
+	}
 
 	return 0;
 }
