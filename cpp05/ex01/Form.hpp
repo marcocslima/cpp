@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 13:53:57 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/08 14:07:00 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/08 18:20:03 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define FORM_HPP
 
 #include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {

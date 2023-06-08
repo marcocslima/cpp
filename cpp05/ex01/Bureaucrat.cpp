@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:03:35 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/08 12:53:50 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/08 18:30:14 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,16 @@ void		Bureaucrat::decrementGrade() {
 	if (this->_grade + 1 > 150)
 		throw Bureaucrat::GradeTooLowException();
 	this->_grade++;
+}
+
+void		Bureaucrat::signForm(Form &form){
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->getName() << " signed " << form.getName() << std::endl;
+	}
+	catch(Form::GradeTooLowException &e)
+	{
+		std::cout << this->_name << " can´t sign " << form.getName() << " because " << e.what() << std::endl;
+	}
 }

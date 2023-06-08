@@ -6,7 +6,7 @@
 #    By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 00:39:21 by mcesar-d          #+#    #+#              #
-#    Updated: 2023/06/08 12:08:22 by mcesar-d         ###   ########.fr        #
+#    Updated: 2023/06/08 18:16:14 by mcesar-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ VPATH = $(SRC_DIR)\
 # FILES #
 
 SOURCES =	main.cpp\
-			Bureaucrat.cpp
+			Bureaucrat.cpp\
+			Form.cpp\
 
 # COMPILED_SOURCES #
 
