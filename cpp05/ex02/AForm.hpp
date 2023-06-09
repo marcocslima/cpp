@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 09:10:28 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/09 09:10:30 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/09 14:55:06 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,29 +26,38 @@ class AForm
 		const int			_gradeToExecute;
 	public:
 		AForm(const std::string &name, int gradeToSign, int gradeToExecute);
-		~AForm(void);
+		virtual ~AForm(void);
 
 		AForm(const AForm &obj);
 		AForm &operator=(const AForm &obj);
 
-		std::string	getName() const;
-		bool		getSigned() const;
-		int			getGradeToSign() const;
-		int			getGradeToExecute() const;
+		std::string		getName() const;
+		bool			getSigned() const;
+		int				getGradeToSign() const;
+		int				getGradeToExecute() const;
 
-		void		beSigned(const Bureaucrat & bureaucrat);
+		void			beSigned(const Bureaucrat & bureaucrat);
+
+		virtual void	execute(Bureaucrat const &executor) const;
 
 		class GradeTooHighException : public std::exception {
 			public:
 				virtual const char* what() const throw() {
-					return "Grade too high !...";
+					return "grade too high !...";
 				}
 		};
 
 		class GradeTooLowException : public std::exception {
 			public:
 				virtual const char* what() const throw() {
-					return "Grade too low !...";
+					return "grade too low !...";
+				}
+		};
+
+		class FormNotSignedExcepton : public std::exception {
+			public:
+				virtual const char* what() const throw() {
+					return "unsigned forma !...";
 				}
 		};
 };
