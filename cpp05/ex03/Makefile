@@ -6,11 +6,11 @@
 #    By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 00:39:21 by mcesar-d          #+#    #+#              #
-#    Updated: 2023/06/06 06:40:07 by mcesar-d         ###   ########.fr        #
+#    Updated: 2023/06/08 18:16:14 by mcesar-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = animals
+NAME = bureaucrat
 
 # LIBRARY #
 
@@ -31,13 +31,9 @@ VPATH = $(SRC_DIR)\
 
 # FILES #
 
-SOURCES =	AAnimal.cpp\
-			Brain.cpp\
-			Dog.cpp\
-			Cat.cpp\
-			WrongAnimal.cpp\
-			WrongCat.cpp\
-			main.cpp
+SOURCES =	main.cpp\
+			Bureaucrat.cpp\
+			Form.cpp\
 
 # COMPILED_SOURCES #
 
