@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 09:10:28 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/09 14:55:06 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/10 11:31:48 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class AForm
 
 		void			beSigned(const Bureaucrat & bureaucrat);
 
-		virtual void	execute(Bureaucrat const &executor) const;
+		virtual void	execute(Bureaucrat const &executor) const = 0;
 
 		class GradeTooHighException : public std::exception {
 			public:
