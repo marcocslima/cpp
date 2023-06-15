@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:03:35 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/09 09:12:52 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/15 04:11:41 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,20 @@ void		Bureaucrat::signForm(AForm &form){
 	{
 		std::cout << this->_name << " can´t sign " << form.getName() << " because " << e.what() << std::endl;
 	}
+}
+
+void		Bureaucrat::executeForm(const AForm &form) const{
+	try
+	{
+		form.execute(*this);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << this->_name << " cannot execute " << form.getName() << " because " << e.what() << std::endl;
+	}
+}
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj){
+	out << obj.getName() << " grade " << obj.getGrade() << std::endl;
+	return out;
 }

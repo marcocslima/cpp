@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:03:47 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/09 14:40:13 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/15 03:59:45 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ class Bureaucrat
 
 		void		signForm(AForm &form);
 
+		void		executeForm(const AForm &form) const;
+
 		class GradeTooHighException : public std::exception {
 			public:
 				virtual const char* what() const throw() {
@@ -52,5 +54,7 @@ class Bureaucrat
 				}
 		};
 };
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj);
 
 #endif

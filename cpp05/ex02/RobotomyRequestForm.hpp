@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RodotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 14:47:30 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/10 11:34:48 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/12 08:01:53 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RODOTOMYREQUESTFORM_HPP
-#define RODOTOMYREQUESTFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
 
-class RodotomyRequestForm : public AForm
+class RobotomyRequestForm : public AForm
 {
 	private:
 		std::string _target;
 	public:
-		RodotomyRequestForm(const std::string &target);
-		~RodotomyRequestForm(void);
+		RobotomyRequestForm(const std::string &target);
+		~RobotomyRequestForm(void);
 
-		RodotomyRequestForm(const RodotomyRequestForm &obj);
-		RodotomyRequestForm &operator=(const RodotomyRequestForm &obj);
+		RobotomyRequestForm(const RobotomyRequestForm &obj);
+		RobotomyRequestForm &operator=(const RobotomyRequestForm &obj);
 
 		void execute(const Bureaucrat &executor) const;
 };

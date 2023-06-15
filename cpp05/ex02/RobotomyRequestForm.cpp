@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RodotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 14:47:26 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/10 11:47:24 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/12 08:02:34 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RodotomyRequestForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
-RodotomyRequestForm::RodotomyRequestForm(const std::string &target) : AForm("Rodotomy Request Form", 25, 5), _target(target){}
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm("Robotomy Request Form", 72, 45), _target(target){}
 
-RodotomyRequestForm::~RodotomyRequestForm(void){}
+RobotomyRequestForm::~RobotomyRequestForm(void){}
 
-RodotomyRequestForm::RodotomyRequestForm(const RodotomyRequestForm &obj) : AForm(obj), _target(obj._target){}
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &obj) : AForm(obj), _target(obj._target){}
 
-RodotomyRequestForm &RodotomyRequestForm::operator=(const RodotomyRequestForm &obj) {
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &obj) {
 	(void)obj;
 	return *this;
 }
 
-void RodotomyRequestForm::execute(const Bureaucrat &executor) const {
+void RobotomyRequestForm::execute(const Bureaucrat &executor) const {
 	if (executor.getGrade() > this->getGradeToExecute())
 		throw AForm::GradeTooLowException();
 	else

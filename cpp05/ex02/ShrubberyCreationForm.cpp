@@ -6,26 +6,43 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 14:47:35 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/10 11:36:58 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/15 04:33:38 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AForm("Presidential Pardon Form", 25, 5), _target(target){}
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("Shrubbery Creation Form", 145, 137), _target(target){}
 
-PresidentialPardonForm::~PresidentialPardonForm(void){}
+ShrubberyCreationForm::~ShrubberyCreationForm(void){}
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &obj) : AForm(obj), _target(obj._target){}
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &obj) : AForm(obj), _target(obj._target){}
 
-PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &obj) {
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &obj) {
 	(void)obj;
 	return *this;
 }
 
-void PresidentialPardonForm::execute(const Bureaucrat &executor) const {
-	if (executor.getGrade() > this->getGradeToExecute())
+void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
+	if (this->getSigned() == false)
+		throw AForm::FormNotSignedExcepton();
+	else if (executor.getGrade() > this->getGradeToExecute()) {
 		throw AForm::GradeTooLowException();
-	else
-		std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+	}
+	
+	std::ofstream file((this->getName() + "_shrubbery").c_str());
+	file << "            *             " << std::endl;
+	file << "           / \\           " << std::endl;
+	file << "          /   \\          " << std::endl;
+	file << "         / @   \\         " << std::endl;
+	file << "        /    @  \\        " << std::endl;
+	file << "       / @       \\       " << std::endl;
+	file << "      /         @ \\      " << std::endl;
+	file << "     /_____________\\     " << std::endl;
+	file << "           | |            " << std::endl;
+	file << "           | |            " << std::endl;
+	file << "           | |            " << std::endl;
+	file << "           | |            " << std::endl;
+	file << "##########################" << std::endl;
+	file.close();
 }
