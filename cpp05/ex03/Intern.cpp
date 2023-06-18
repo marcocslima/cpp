@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 14:50:34 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/18 15:48:26 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/18 20:42:09 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,31 @@ Intern &Intern::operator=(const Intern &obj){
 }
 
 AForm *Intern::makeForm(std::string name, std::string target){
-	AForm *tmp;
-	
-	tmp = new ShrubberyCreationForm(target);
 
-	std::string fNames[] = {
-		"shrubbery creation",
-		"robotomy request",
-		"presidential pardon"
-	};
-	for (int i = 0; i < 3; i++){
-		if(fNames[i] == name)
-			std::cout << fNames[i] << std::endl;
+	int			index = 0;
+	KeyPointer	dictionary[4];
+
+	dictionary[0].key = "non-existent form";
+	dictionary[0].form = NULL;
+
+	dictionary[1].key = "shrubbery creation";
+	dictionary[1].form = new ShrubberyCreationForm(target);
+
+	dictionary[2].key = "robotomy request";
+	dictionary[2].form = new RobotomyRequestForm(target);
+
+	dictionary[3].key = "presidential pardon";
+	dictionary[3].form = new PresidentialPardonForm(target);
+
+	for (int i = 0; i < 4; i++){
+		if (dictionary[i].key == name){
+			index = i;
+			std::cout << "Intern creates " << name << " form !.." << std::endl;
+		}
+		else
+			delete dictionary[i].form;
 	}
-	return tmp;
+	if (index == 0)
+		std::cout << "Intern can't create " << name << " form !.." << std::endl;
+	return dictionary[index].form;
 }

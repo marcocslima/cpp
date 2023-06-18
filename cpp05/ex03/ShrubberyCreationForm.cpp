@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 14:47:35 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/15 04:33:38 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/18 20:54:21 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
 	else if (executor.getGrade() > this->getGradeToExecute()) {
 		throw AForm::GradeTooLowException();
 	}
-	
+
 	std::ofstream file((this->getName() + "_shrubbery").c_str());
 	file << "            *             " << std::endl;
 	file << "           / \\           " << std::endl;

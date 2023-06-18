@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 14:44:18 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/18 14:53:22 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/18 20:16:17 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+
+struct KeyPointer{
+	std::string	key;
+	AForm 		*form;
+};
 
 class Intern
 {
