@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:05:09 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/15 03:40:00 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/18 15:08:55 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,26 @@
 
 int main(void)
 {
-	Bureaucrat bureaucrat("Clayton", 10);
-	ShrubberyCreationForm form_1("Shrubbery");
-	RobotomyRequestForm form_2("Robotomy");
-	PresidentialPardonForm form_3("Presidential");
-
 	try
 	{
-		bureaucrat.signForm(form_1);
-		bureaucrat.executeForm(form_1);
+		Bureaucrat bureaucrat("Clayton", 1);
+		ShrubberyCreationForm form_S("Home");
+		RobotomyRequestForm form_R("Sophia");
+		PresidentialPardonForm form_P("John Doe");
+		
+		std::cout << BWT << "\n#-------Shrubbery------#" << RESET << std::endl;
+		bureaucrat.signForm(form_S);
+		bureaucrat.executeForm(form_S);
+		std::cout << BWT << "\n#-------Robotomy-------#" << RESET << std::endl;
+		bureaucrat.signForm(form_R);
+		bureaucrat.executeForm(form_R);
+		bureaucrat.executeForm(form_R);
+		bureaucrat.executeForm(form_R);
+		bureaucrat.executeForm(form_R);
+		std::cout << BWT << "\n#-----Presidential-----#" << RESET << std::endl;
+		bureaucrat.signForm(form_P);
+		bureaucrat.executeForm(form_P);
+		std::cout << "\n#-----####################-----#" << RESET << std::endl;
 	}
 	catch (std::exception &e)
 	{

@@ -6,7 +6,7 @@
 #    By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 00:39:21 by mcesar-d          #+#    #+#              #
-#    Updated: 2023/06/08 18:16:14 by mcesar-d         ###   ########.fr        #
+#    Updated: 2023/06/18 15:38:35 by mcesar-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,11 @@ VPATH = $(SRC_DIR)\
 
 SOURCES =	main.cpp\
 			Bureaucrat.cpp\
-			Form.cpp\
+			AForm.cpp\
+			PresidentialPardonForm.cpp\
+			RobotomyRequestForm.cpp\
+			ShrubberyCreationForm.cpp\
+			Intern.cpp\
 
 # COMPILED_SOURCES #
 
