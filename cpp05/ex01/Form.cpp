@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 13:53:26 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/08 18:25:15 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/18 21:23:17 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ Form::~Form(void) {}
 Form::Form(const Form &obj) : _name(obj.getName()), _gradeToSign(obj.getGradeToSign()), _gradeToExecute(obj.getGradeToExecute()) {}
 
 Form &Form::operator=(const Form &obj){
+	if (this == &obj){
+		return *this;
+	}
 	this->_signed = obj.getSigned();
 	return *this;
 }

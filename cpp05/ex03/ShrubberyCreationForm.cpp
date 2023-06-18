@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 14:47:35 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/18 20:54:21 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/18 21:16:02 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void){}
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &obj) : AForm(obj), _target(obj._target){}
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &obj) {
-	(void)obj;
+	if (this == &obj){
+		return *this;
+	}
+	*this = obj;
 	return *this;
 }
 

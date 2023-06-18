@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:03:35 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/18 09:45:05 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/18 21:22:08 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ Bureaucrat::~Bureaucrat(void){}
 Bureaucrat::Bureaucrat(const Bureaucrat &obj) : _name(obj._name), _grade(obj._grade){}
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj){
+	if (this == &obj){
+		return *this;
+	}
 	this->_grade = obj.getGrade();
 	return *this;
 }

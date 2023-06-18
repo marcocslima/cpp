@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 14:50:34 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/18 20:42:09 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/18 21:17:28 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ Intern::Intern(const Intern &obj){
 }
 
 Intern &Intern::operator=(const Intern &obj){
-	(void)obj;
+	if (this == &obj){
+		return *this;
+	}
+	*this = obj;
 	return *this;
 }
 

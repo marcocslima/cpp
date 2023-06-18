@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 14:47:17 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/18 09:48:23 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/18 21:17:05 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ PresidentialPardonForm::~PresidentialPardonForm(void){}
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &obj) : AForm(obj), _target(obj._target){}
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &obj) {
-	(void)obj;
+	if (this == &obj){
+		return *this;
+	}
+	*this = obj;
 	return *this;
 }
 
