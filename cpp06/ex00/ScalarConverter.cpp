@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 06:47:15 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/25 11:01:40 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/25 11:32:39 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void		ScalarConverter::setInput(std::string input){
 		this->_type = INT;
 	} else if (isFloat()) {
 		this->_type = FLOAT;
+	} else if (isDouble()) {
+		this->_type = DOUBLE;
 	} else {
 		this->_type = EMPTY;
 	}
@@ -101,6 +103,7 @@ bool		ScalarConverter::isInt(void){
 bool		ScalarConverter::isFloat(void){
 	unsigned long	i = 0;
 	int				control = 0;
+
 	if (this->_input.find('.') == std::string::npos
 		|| this->_input.find('.') == 0
 		|| this->_input[this->_input.length() - 1] != 'f'
@@ -123,6 +126,30 @@ bool		ScalarConverter::isFloat(void){
 	return true;
 }
 
+bool		ScalarConverter::isDouble(void){
+	int	i = 0;
+	int	control = 0;
+
+	if (this->_input.find('.') == std::string::npos
+		|| this->_input.find('.') == 0)
+		return false;
+	if (this->_input[i] == '+' || this->_input[i] == '-')
+		i++;
+	while (i < (int)this->_input.length()){
+		if (this->_input[i] == '.')
+			control++;
+		if ((!std::isdigit(this->_input[i]) && this->_input[i] != '.')
+			|| control > 1)
+			return false;
+		i++;
+	}
+	this->_d = static_cast<double>(std::atof(this->_input.c_str()));
+	this->_f = static_cast<float>(this->_d);
+	this->_i = static_cast<int>(this->_d);
+	this->_c = static_cast<char>(this->_d);
+	return true;
+}
+
 void		ScalarConverter::convert(void){
 	switch (_type) {
 		case CHAR:
@@ -133,6 +160,9 @@ void		ScalarConverter::convert(void){
 			break;
 		case FLOAT:
 			std::cout << this->_f << std::endl;
+			break;
+		case DOUBLE:
+			std::cout << this->_d << std::endl;
 			break;
 		default:
 			std::cout << "xxxxxxxxxx" << std::endl;

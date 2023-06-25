@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 06:47:23 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/25 08:28:21 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/25 11:14:49 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ class ScalarConverter
 		bool			isChar(void);
 		bool			isInt(void);
 		bool			isFloat(void);
+		bool			isDouble(void);
 		void			convert(void);
 
 		class SCException : public std::exception {
