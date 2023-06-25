@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 06:47:23 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/24 09:23:16 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/25 08:28:21 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,20 @@
 #define SCALARCONVERTER_HPP
 
 #include <iostream>
+#include <fstream>
+#include <cstdlib>
 #include <string>
 #include <cmath>
 #include <climits>
+
+enum etype {
+	CHAR,
+	INT,
+	FLOAT,
+	DOUBLE,
+	LITERALS,
+	EMPTY
+};
 
 class ScalarConverter
 {
@@ -27,6 +38,7 @@ class ScalarConverter
 		double		_d;
 
 		std::string	_input;
+		char		_type;
 		bool		_impossible;
 	public:
 		ScalarConverter(void);
@@ -41,6 +53,15 @@ class ScalarConverter
 		std::string		getInput(void) const;
 		bool			isLiterals(void) const;
 		bool			isChar(void);
+		bool			isInt(void);
+		bool			isFloat(void);
+		void			convert(void);
+
+		class SCException : public std::exception {
+			virtual const char *what() const throw(){
+				return "Error type";
+			}
+		};
 };
 
 #endif
