@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 06:47:15 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/30 11:33:03 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/30 16:12:20 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,14 @@ void	ScalarConverter::printChar(const std::string input){
 	if (ScalarConverter::isLiterals(input)
 		|| (!std::isprint(input[0] - '0')
 		&& input[0] - '0' >= 127)) {
-			std::cout << "Impossible" << std::endl;
+			std::cout << "char: impossible" << std::endl;
 	} else if (!std::isprint(input[0] - '0')) {
-		std::cout << "Non displayable" << std::endl;
+		std::cout << "char: Non displayable" << std::endl;
 	} else {
-		std::cout << "'" << input[0] << "'" << std::endl;
+		std::cout << "char: '" << input[0] << "'" << std::endl;
+		// std::cout << "int: " << input[0] - '0' << std::endl;
+		// std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(input[0] - '0') << "f" << std::endl;
+		// std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(input[0] - '0') << std::endl;
 	}
 }
 
@@ -69,6 +72,16 @@ bool	ScalarConverter::isInt(const std::string input){
 		i++;
 	}
 	return true;
+}
+
+void	ScalarConverter::printInt(const std::string input){
+	if (ScalarConverter::isLiterals(input)
+		|| (!std::isprint(input[0] - '0')
+		&& input[0] - '0' >= 127)) {
+			std::cout << "int: impossible" << std::endl;;
+	} else {
+		std::cout << "int: " << static_cast<int>(strtol(input.c_str(), NULL, 10)) << std::endl;
+	}
 }
 
 bool	ScalarConverter::isFloat(const std::string input){
@@ -93,6 +106,21 @@ bool	ScalarConverter::isFloat(const std::string input){
 	return true;
 }
 
+void	ScalarConverter::printFloat(const std::string input){
+	int		retInt = static_cast<int>(strtol(input.c_str(), NULL, 10));
+	float	retFloat = static_cast<float>(strtol(input.c_str(), NULL, 10));
+	if (ScalarConverter::isLiterals(input)
+		|| (!std::isprint(input[0] - '0')
+		&& input[0] - '0' >= 127)) {
+			std::cout << "float: impossible" << std::endl;;
+	} else {
+		if (retFloat - retInt == 0)
+			std::cout << "float: " << retFloat << ".0f" << std::endl;
+		else
+			std::cout << "float: " << retFloat << "f" << std::endl;
+	}
+}
+
 bool	ScalarConverter::isDouble(const std::string input){
 	int	i = 0;
 	int	control = 0;
@@ -115,39 +143,34 @@ bool	ScalarConverter::isDouble(const std::string input){
 
 void		ScalarConverter::convert(const std::string input){
 
-	etype type = ScalarConverter::verifyInput(input);
-	int		retInt;
-	float	retFloat;
-	double	retDouble;
+	etype	type = ScalarConverter::verifyInput(input);
+	int		retInt = input[0] -'0';
+
+	std::ostringstream oss;
+	oss << retInt;
+	std::string stringValue = oss.str();
 
 	switch (type) {
 		case CHAR:
-			std::cout << CHAR << std::endl;
+			std::cout << "CHAR" << std::endl;
 			ScalarConverter::printChar(input);
+			ScalarConverter::printInt(stringValue);
+			ScalarConverter::printFloat(stringValue);
 			break;
 		case INT:
-			std::cout << INT << std::endl;
-			retInt = static_cast<int>(std::atoi(input.c_str()));
-			//retChar = static_cast<char>(retInt);
-			retFloat = static_cast<float>(retInt);
-			retDouble = static_cast<double>(retInt);
-			std::cout << retInt << std::endl;
+			std::cout << "INT" << std::endl;
+			ScalarConverter::printChar(input);
+			ScalarConverter::printInt(input);
+			ScalarConverter::printFloat(input);
 			break;
 		case FLOAT:
-			std::cout << FLOAT << std::endl;
-			retFloat = static_cast<float>(std::atof(input.c_str()));
-			//retChar = static_cast<char>(retFloat);
-			retInt = static_cast<int>(retFloat);
-			retDouble = static_cast<double>(retFloat);
-			std::cout << retFloat << std::endl;
+			std::cout << "FLOAT" << std::endl;
+			ScalarConverter::printChar(input);
+			ScalarConverter::printInt(input);
+			ScalarConverter::printFloat(input);
 			break;
 		case DOUBLE:
-			std::cout << DOUBLE << std::endl;
-			retDouble = static_cast<double>(std::atof(input.c_str()));
-			//retChar = static_cast<char>(retDouble);
-			retInt = static_cast<int>(retDouble);
-			retFloat = static_cast<float>(retDouble);
-			std::cout << retDouble << std::endl;
+			std::cout << "DOUBLE" << std::endl;
 			break;
 		default:
 			std::cout << "xxxxxxxxxx" << std::endl;

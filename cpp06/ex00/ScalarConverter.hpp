@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 06:47:23 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/30 11:06:51 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/30 15:58:13 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 #include <string>
 #include <cmath>
 #include <climits>
+#include <iomanip>
+#include <sstream>
+#include <typeinfo>
 
 enum etype {
 	CHAR,
@@ -42,6 +45,8 @@ class ScalarConverter
 		static bool		isFloat(const std::string input);
 		static bool		isDouble(const std::string input);
 		static void		printChar(const std::string input);
+		static void		printInt(const std::string input);
+		static void		printFloat(const std::string input);
 	public:
 		static void		convert(const std::string input);
 
