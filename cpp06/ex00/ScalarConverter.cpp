@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 06:47:15 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/30 16:20:28 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/30 20:50:06 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,30 @@ etype	ScalarConverter::verifyInput(std::string input){
 		return (FLOAT);
 	} else if (isDouble(input)) {
 		return (DOUBLE);
+	} else if (isLiterals(input)) {
+		return (LITERALS);
 	} else {
 		throw ScalarConverter::SCException();
 		return (EMPTY);
 	}
+}
+
+bool	ScalarConverter::isImpossible(const std::string input){
+	try {
+		if (ScalarConverter::isInt(input)) {
+			int tmp = static_cast<int>(strtol(input.c_str(), NULL, 10));
+			(void)tmp;
+		} else if (ScalarConverter::isFloat(input)) {
+			float tmp = static_cast<float>(atof(input.c_str()));
+			(void)tmp;
+		}  else if (ScalarConverter::isDouble(input)) {
+			double tmp = static_cast<double>(atof(input.c_str()));
+			(void)tmp;
+		}
+	} catch (std::exception& e) {
+		return true;
+	}
+	return false;
 }
 
 bool	ScalarConverter::isLiterals(const std::string input){
@@ -104,17 +124,13 @@ bool	ScalarConverter::isFloat(const std::string input){
 }
 
 void	ScalarConverter::printFloat(const std::string input){
-	int		retInt = static_cast<int>(strtol(input.c_str(), NULL, 10));
-	float	retFloat = static_cast<float>(strtol(input.c_str(), NULL, 10));
-	if (ScalarConverter::isLiterals(input)
-		|| (!std::isprint(input[0] - '0')
-		&& input[0] - '0' >= 127)) {
-			std::cout << "float: impossible" << std::endl;;
+	float	retFloat = static_cast<float>(atof(input.c_str()));
+	if (ScalarConverter::isLiterals(input)) {
+		std::cout << "float: " << input << "f" << std::endl;
+	} else if (ScalarConverter::isImpossible(input)) {
+		std::cout << "float: impossible" << std::endl;
 	} else {
-		if (retFloat - retInt == 0)
-			std::cout << "float: " << retFloat << ".0f" << std::endl;
-		else
-			std::cout << "float: " << retFloat << "f" << std::endl;
+		std::cout << "float: " << std::setprecision(1) << std::fixed << retFloat << "f" << std::endl;
 	}
 }
 
@@ -138,39 +154,64 @@ bool	ScalarConverter::isDouble(const std::string input){
 	return true;
 }
 
-void	ScalarConverter::convert(const std::string input){
+void	ScalarConverter::printDouble(const std::string input){
+	double	retDouble = static_cast<double>(atof(input.c_str()));
+	if (ScalarConverter::isLiterals(input)) {
+		std::cout << "double: " << input << std::endl;
+	} else if (ScalarConverter::isImpossible(input)) {
+		std::cout << "double: impossible" << std::endl;;
+	} else {
+		std::cout << "double: " << std::setprecision(1) << std::fixed << retDouble << std::endl;
+	}
+}
 
-	etype	type = ScalarConverter::verifyInput(input);
+void	ScalarConverter::print(const std::string input, etype type){
+	
 	int		retInt = input[0] -'0';
 
 	std::ostringstream oss;
 	oss << retInt;
 	std::string stringValue = oss.str();
+	
+	ScalarConverter::printChar(input);
+	if (type == CHAR) {
+		ScalarConverter::printInt(stringValue);
+		ScalarConverter::printFloat(stringValue);
+		ScalarConverter::printDouble(stringValue);
+	} else {
+		ScalarConverter::printInt(input);
+		ScalarConverter::printFloat(input);
+		ScalarConverter::printDouble(input);
+	}
+}
+
+void	ScalarConverter::convert(const std::string input){
+
+	etype	type = ScalarConverter::verifyInput(input);
 
 	switch (type) {
 		case CHAR:
 			std::cout << "CHAR" << std::endl;
-			ScalarConverter::printChar(input);
-			ScalarConverter::printInt(stringValue);
-			ScalarConverter::printFloat(stringValue);
+			ScalarConverter::print(input, CHAR);
 			break;
 		case INT:
 			std::cout << "INT" << std::endl;
-			ScalarConverter::printChar(input);
-			ScalarConverter::printInt(input);
-			ScalarConverter::printFloat(input);
+			ScalarConverter::print(input, INT);
 			break;
 		case FLOAT:
 			std::cout << "FLOAT" << std::endl;
-			ScalarConverter::printChar(input);
-			ScalarConverter::printInt(input);
-			ScalarConverter::printFloat(input);
+			ScalarConverter::print(input, FLOAT);
 			break;
 		case DOUBLE:
 			std::cout << "DOUBLE" << std::endl;
+			ScalarConverter::print(input, DOUBLE);
+			break;
+		case LITERALS:
+			std::cout << "LITERALS" << std::endl;
+			ScalarConverter::print(input, LITERALS);
 			break;
 		default:
-			std::cout << "xxxxxxxxxx" << std::endl;
+			std::cout << "impossible" << std::endl;
 			break;
 	}
 }
