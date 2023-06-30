@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 06:47:15 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/30 16:15:43 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/30 16:20:28 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,7 @@ bool	ScalarConverter::isDouble(const std::string input){
 	return true;
 }
 
-void		ScalarConverter::convert(const std::string input){
+void	ScalarConverter::convert(const std::string input){
 
 	etype	type = ScalarConverter::verifyInput(input);
 	int		retInt = input[0] -'0';
