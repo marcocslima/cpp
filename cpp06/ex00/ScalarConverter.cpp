@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 06:47:15 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/30 16:12:20 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/30 16:15:43 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,6 @@ void	ScalarConverter::printChar(const std::string input){
 		std::cout << "char: Non displayable" << std::endl;
 	} else {
 		std::cout << "char: '" << input[0] << "'" << std::endl;
-		// std::cout << "int: " << input[0] - '0' << std::endl;
-		// std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(input[0] - '0') << "f" << std::endl;
-		// std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(input[0] - '0') << std::endl;
 	}
 }
 
