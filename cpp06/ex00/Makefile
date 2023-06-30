@@ -6,11 +6,11 @@
 #    By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 00:39:21 by mcesar-d          #+#    #+#              #
-#    Updated: 2023/06/24 08:24:20 by mcesar-d         ###   ########.fr        #
+#    Updated: 2023/06/30 20:56:37 by mcesar-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = scalar_converter
+NAME = convert
 
 # LIBRARY #
 

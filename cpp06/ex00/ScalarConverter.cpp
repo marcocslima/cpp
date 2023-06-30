@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 06:47:15 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/30 20:50:06 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/30 20:55:57 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,7 +167,7 @@ void	ScalarConverter::printDouble(const std::string input){
 
 void	ScalarConverter::print(const std::string input, etype type){
 	
-	int		retInt = input[0] -'0';
+	int	retInt = input[0] -'0';
 
 	std::ostringstream oss;
 	oss << retInt;
@@ -191,23 +191,18 @@ void	ScalarConverter::convert(const std::string input){
 
 	switch (type) {
 		case CHAR:
-			std::cout << "CHAR" << std::endl;
 			ScalarConverter::print(input, CHAR);
 			break;
 		case INT:
-			std::cout << "INT" << std::endl;
 			ScalarConverter::print(input, INT);
 			break;
 		case FLOAT:
-			std::cout << "FLOAT" << std::endl;
 			ScalarConverter::print(input, FLOAT);
 			break;
 		case DOUBLE:
-			std::cout << "DOUBLE" << std::endl;
 			ScalarConverter::print(input, DOUBLE);
 			break;
 		case LITERALS:
-			std::cout << "LITERALS" << std::endl;
 			ScalarConverter::print(input, LITERALS);
 			break;
 		default:
