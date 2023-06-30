@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 06:47:15 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/30 20:55:57 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/06/30 21:07:59 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,9 @@ bool	ScalarConverter::isChar(const std::string input){
 }
 
 void	ScalarConverter::printChar(const std::string input){
-	if (ScalarConverter::isLiterals(input)
+	if (ScalarConverter::isFloat(input) || ScalarConverter::isDouble(input)) {
+		std::cout << "char: '*'" << std::endl;
+	} else if (ScalarConverter::isLiterals(input)
 		|| (!std::isprint(input[0] - '0')
 		&& input[0] - '0' >= 127)) {
 			std::cout << "char: impossible" << std::endl;
@@ -95,7 +97,7 @@ void	ScalarConverter::printInt(const std::string input){
 	if (ScalarConverter::isLiterals(input)
 		|| (!std::isprint(input[0] - '0')
 		&& input[0] - '0' >= 127)) {
-			std::cout << "int: impossible" << std::endl;;
+			std::cout << "int: impossible" << std::endl;
 	} else {
 		std::cout << "int: " << static_cast<int>(strtol(input.c_str(), NULL, 10)) << std::endl;
 	}
