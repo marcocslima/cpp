@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 06:47:15 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/30 21:07:59 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/01 20:42:09 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,17 @@ bool	ScalarConverter::isChar(const std::string input){
 }
 
 void	ScalarConverter::printChar(const std::string input){
+	int veriNum = static_cast<int>(atol(input.c_str()));
 	if (ScalarConverter::isFloat(input) || ScalarConverter::isDouble(input)) {
 		std::cout << "char: '*'" << std::endl;
 	} else if (ScalarConverter::isLiterals(input)
-		|| (!std::isprint(input[0] - '0')
-		&& input[0] - '0' >= 127)) {
+		|| (!std::isprint(veriNum)
+		&& (veriNum <= 0 || veriNum > 255))) {
 			std::cout << "char: impossible" << std::endl;
-	} else if (!std::isprint(input[0] - '0')) {
+	} else if (!std::isprint(veriNum)) {
 		std::cout << "char: Non displayable" << std::endl;
 	} else {
-		std::cout << "char: '" << input[0] << "'" << std::endl;
+		std::cout << "char: '" << static_cast<char>(veriNum) << "'" << std::endl;
 	}
 }
 
@@ -94,12 +95,14 @@ bool	ScalarConverter::isInt(const std::string input){
 }
 
 void	ScalarConverter::printInt(const std::string input){
+	long long veriInt = atol(input.c_str());
 	if (ScalarConverter::isLiterals(input)
 		|| (!std::isprint(input[0] - '0')
-		&& input[0] - '0' >= 127)) {
+		&& input[0] - '0' >= 127)
+		|| (veriInt < INT_MIN || veriInt > INT_MAX)) {
 			std::cout << "int: impossible" << std::endl;
 	} else {
-		std::cout << "int: " << static_cast<int>(strtol(input.c_str(), NULL, 10)) << std::endl;
+		std::cout << "int: " << static_cast<int>(veriInt) << std::endl;
 	}
 }
 

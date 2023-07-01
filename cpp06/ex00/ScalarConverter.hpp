@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 06:47:23 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/30 20:52:52 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/01 19:01:13 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <cmath>
 #include <sstream>
 #include <iomanip>
+#include <climits>
 
 enum etype {
 	CHAR,
