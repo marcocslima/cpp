@@ -6,13 +6,12 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 06:39:17 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/02 07:34:48 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/02 07:44:52 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
 #include "Data.hpp"
-
 
 int main (void) {
 	Data		data = {"Bope", 16};
