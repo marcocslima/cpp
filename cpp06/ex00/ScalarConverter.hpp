@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 06:47:23 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/01 19:01:13 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/02 07:03:00 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ class ScalarConverter
 {
 	private:
 		ScalarConverter(void);
-		~ScalarConverter(void);
 
 		static etype	verifyInput(const std::string input);
 		static bool		isImpossible(const std::string input);
@@ -48,6 +47,7 @@ class ScalarConverter
 		static void		printDouble(const std::string input);
 		static void		print(const std::string input, etype type);
 	public:
+		~ScalarConverter(void);
 		static void		convert(const std::string input);
 
 	class SCException : public std::exception {
