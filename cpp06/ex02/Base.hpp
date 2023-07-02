@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 07:53:16 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/02 08:37:06 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/02 13:53:18 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@
 class Base
 {
 	public:
-		virtual ~Base(void);
+		virtual ~Base() {};
 };
 
-class A : public Base{};
-class B : public Base{};
-class C : public Base{};
+class A : public Base {};
+class B : public Base {};
+class C : public Base {};
 
 Base*	generate(void);
 void	identify(Base* p);
