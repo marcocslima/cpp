@@ -6,11 +6,12 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 02:53:14 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/03 03:27:32 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/04 21:56:33 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef ARRAY_HPP
+#define ARRAY_HPP
 
 #include <iostream>
 #include <string>
@@ -21,16 +22,25 @@ template <typename T>
 class Array
 {
 	private:
-		T*				array;
-		unsigned int	size;
+		T*				_array;
+		unsigned int	_size;
 	public:
-		Array(void);
+		Array();
 		Array(unsigned int n);
-		~Array(const Array<T>& c);
+		~Array();
+		Array(const Array<T>& c);
 		
-		Array<T>& operator=(Array<T>& c);
-		T& operator[](unsigned int i);
-		unsigned int size(void) const {return size};
+		Array<T>& operator=(Array<T> &c);
+		T& operator[](unsigned int i) const;
+		unsigned int size(void) const;
+
+	class OutOfBoundsException : public std::exception {
+		public:
+			virtual const char *what() const throw() {
+				return "Index is out of bounds";
+			}
+	};
 };
 
 #include "Array.tpp"
+#endif
