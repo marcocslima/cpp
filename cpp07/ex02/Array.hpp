@@ -6,12 +6,11 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 02:53:14 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/04 21:56:33 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/05 23:15:29 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ARRAY_HPP
-#define ARRAY_HPP
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -28,11 +27,11 @@ class Array
 		Array();
 		Array(unsigned int n);
 		~Array();
-		Array(const Array<T>& c);
+		Array(const Array<T> &c);
 		
-		Array<T>& operator=(Array<T> &c);
-		T& operator[](unsigned int i) const;
-		unsigned int size(void) const;
+		Array<T>& operator=(const Array<T> &c);
+		T& operator[](unsigned int i);
+		unsigned int size(void);
 
 	class OutOfBoundsException : public std::exception {
 		public:
@@ -43,4 +42,3 @@ class Array
 };
 
 #include "Array.tpp"
-#endif
