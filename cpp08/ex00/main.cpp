@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 07:31:46 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/06 08:14:28 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/06 08:30:19 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int main (void)
 	easyfind(numbers, 15);
 
 	char arr[] = "abcdefg";
-	std::list<char> characters(arr, arr + sizeof(arr) / sizeof(arr[0]));
+	std::list<char> characters(arr, arr + sizeof(arr));
 
-	easyfind(characters, 'e');
+	easyfind(characters, 'c');
 	easyfind(characters, 'z');
 
 	return 0;
