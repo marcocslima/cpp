@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 00:09:50 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/08 01:34:24 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/08 09:06:56 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,23 @@ int main()
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
 
+
 	std::cout << "***********Big Test***********" << std::endl;
 	try
 	{
-		std::srand((unsigned) time(NULL));
-		std::vector<unsigned int> v(1500);
-		std::generate(v.begin(), v.end(), std::rand());
-
-		Span span(v.size());
-		span.addNumber(v.begin(),v.end());
-
-		std::cout << "Shortest span: " << span.shortestSpan() << std::endl;
-		std::cout << "Longtest span: " << span.longestSpan() << std::endl;
+		unsigned int len = 10000;
+		std::srand(static_cast<unsigned int>(std::time(NULL)));
+		std::vector<unsigned int> v;
+		for (unsigned int i = 0; i < len; i++) {
+			unsigned int randomNum = static_cast<unsigned int>(std::rand());
+			v.push_back(randomNum % len);
+		}
 		
+		Span span_big = Span(len);
+		span_big.addNumber(v.begin(), v.end());
+
+		std::cout << "Shortest span: " << span_big.shortestSpan() << std::endl;
+		std::cout << "Longtest span: " << span_big.longestSpan() << std::endl;
 	}
 	catch(const std::exception& e)
 	{

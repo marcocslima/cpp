@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 00:20:53 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/08 01:13:52 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/08 09:02:48 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,12 @@ Span& Span::operator=(const Span &cpy) {
 }
 
 void Span::addNumber(unsigned int n) {
-	if (this->N.size() > size)
+	if (this->N.size() + 1 > size)
 		throw Span::SpanException();
 	this->N.push_back(n);
 }
 
 void Span::addNumber(std::vector<unsigned int>::iterator begin, std::vector<unsigned int>::iterator end) {
-	srand((unsigned int) time(NULL));
 	if (begin == end)
 		throw Span::SpanException();
 	while (begin != end)

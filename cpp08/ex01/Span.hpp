@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 00:10:35 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/08 01:21:19 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/08 08:12:46 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <cstdlib>
 #include <limits.h>
 #include <algorithm>
+#include <ctime>
 
 class Span
 {
