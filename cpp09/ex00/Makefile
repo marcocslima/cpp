@@ -6,7 +6,7 @@
 #    By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 00:39:21 by mcesar-d          #+#    #+#              #
-#    Updated: 2023/07/09 20:18:42 by mcesar-d         ###   ########.fr        #
+#    Updated: 2023/07/09 22:44:16 by mcesar-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME = btc
 # COMPILATION #
 
 CC = c++
-FLAGS = -g -std=c++98 -Werror -Wextra -Wall
+FLAGS = -g -Werror -Wextra -Wall -std=c++98
 
 # DELETE #
 
@@ -31,7 +31,7 @@ VPATH = $(SRC_DIR)\
 
 # FILES #
 
-FILES =		main
+FILES =		main BitcoinExchange
 
 SOURCES =	$(FILES:=.cpp)
 
