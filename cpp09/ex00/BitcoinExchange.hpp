@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 20:22:06 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/12 06:46:24 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/12 20:10:01 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class BitcoinExchange
 		std::string _input;
 		std::string _data;
 		std::multimap<std::string, float> input;
-		std::multimap<std::string, float> data;
+		std::multimap<int, float> data;
 	public:
 		BitcoinExchange();
 		BitcoinExchange(const std::string& input);
@@ -34,8 +34,9 @@ class BitcoinExchange
 		BitcoinExchange(const BitcoinExchange& cpy);
 		BitcoinExchange& operator=(const BitcoinExchange& obj);
 
-		int		checkEntry(const std::string& str);
-		int		checkValues(const std::string& str);
+		int		dateToInt(std::string date);
+		bool	checkEntry(const std::string& str);
+		bool	checkValues(const std::string& str);
 		void	chargingData(std::string filename);
 		void	getResult();
 };
