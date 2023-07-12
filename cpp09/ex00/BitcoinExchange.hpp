@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 20:22:06 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/11 06:47:50 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/12 06:46:24 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ class BitcoinExchange
 		BitcoinExchange(const BitcoinExchange& cpy);
 		BitcoinExchange& operator=(const BitcoinExchange& obj);
 
-		void chargingData(std::string filename);
-		void getResult();
+		int		checkEntry(const std::string& str);
+		int		checkValues(const std::string& str);
+		void	chargingData(std::string filename);
+		void	getResult();
 };
