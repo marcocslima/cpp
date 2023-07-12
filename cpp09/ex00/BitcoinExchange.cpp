@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 20:33:26 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/12 07:23:41 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/12 07:26:41 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int		BitcoinExchange::checkEntry(const std::string& str){
 	std::string strEntry = "dddd-dd-dd | d";
 	int error = 14;
 	int i = -1;
-	
+
 	while (++i < (int)str.length()) {
 		if (strEntry[i] == 'd' && std::isdigit(str[i]))
 			error--;
