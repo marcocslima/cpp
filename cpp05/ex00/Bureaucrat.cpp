@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:03:35 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/18 21:24:29 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/13 07:18:41 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,9 @@ void		Bureaucrat::decrementGrade() {
 	if (this->_grade + 1 > 150)
 		throw Bureaucrat::GradeTooLowException();
 	this->_grade++;
+}
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj){
+	out << obj.getName() << " grade " << obj.getGrade() << std::endl;
+	return out;
 }

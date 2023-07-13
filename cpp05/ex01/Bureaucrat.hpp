@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:03:47 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/09 14:39:48 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/13 07:17:44 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,7 @@ class Bureaucrat
 				}
 		};
 };
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj);
 
 #endif
