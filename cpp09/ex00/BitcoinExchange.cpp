@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 20:33:26 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/12 20:40:36 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/13 08:48:51 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,6 @@ bool		BitcoinExchange::checkEntry(const std::string& str){
 		std::cout << "Error: bad input => "<< str << std::endl;
 		return false;
 	}
-	else
-		checkValues(str);
 	return true;
 }
 
@@ -80,7 +78,6 @@ int		BitcoinExchange::dateToInt(std::string date){
 	dInt = std::atof(date.substr(0, 4).c_str()) * 10000
 		+ std::atof(date.substr(5, 2).c_str()) * 100
 		+ std::atof(date.substr(8, 2).c_str());
-	std::cout << dInt << std::endl;
 	return dInt;
 }
 
@@ -99,7 +96,6 @@ void	BitcoinExchange::chargingData(std::string data){
 		d_entry.close();
 		return ;
 	}
-
 	while(std::getline(d_entry, line)){
 		if (nline > 0 ){
 			pos = line.find(delimiter);
@@ -109,27 +105,36 @@ void	BitcoinExchange::chargingData(std::string data){
 		}
 		nline++;
 	}
+
+	std::ofstream file("_data");
+
+	std::multimap<int, float>::iterator it;
+	for (it = this->data.begin(); it != this->data.end(); ++it) {
+		file << it->first << " : " << it->second << std::endl;
+	}
+	file.close();
 }
 
 
 void	BitcoinExchange::getResult(){
 
-	// std::ifstream	d_input;
-	// std::string		line;
-	// int				nline = -1;
+	std::ifstream	d_input;
+	std::string		line;
+	int				nline = 0;
 
 	chargingData(this->_data);
 
-	// d_input.open(this->_input.c_str());
+	d_input.open(this->_input.c_str());
 	
-	// if (!d_input){
-	// 	std::cerr << "Error: cannot open data file " << this->_input.c_str() << std::endl;
-	// 	d_input.close();
-	// 	return ;
-	// }
+	if (!d_input){
+		std::cerr << "Error: cannot open data file " << this->_input.c_str() << std::endl;
+		d_input.close();
+		return ;
+	}
 
-	// while(std::getline(d_input, line)){
-	// 	checkEntry(line);
-	// }
+	while(std::getline(d_input, line)){
+		if (nline++ > 0 && checkEntry(line) && checkValues(line))
+			std::cout << line << std::endl;
+	}
 
 }
