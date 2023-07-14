@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 20:33:26 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/13 08:48:51 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/14 07:25:26 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ bool		BitcoinExchange::checkValues(const std::string& str){
 	int		day = std::atoi(str.substr(8, 2).c_str());
 	float	val = std::atof(str.substr(13, str.length() - 13).c_str());
 
-	if ((month < 0 || month > 12) || (day < 0 || day > 31)){
-		std::cout << "Error: invalid date => " << str.substr(0, 10) << std::endl;
+	if ((month < 0 || month > 12) || (day < 0 || day > 31)) {
+		std::cout << "Error: bad input => " << str.substr(0, 10) << std::endl;
 		return false;
 	} else if (val == 0 || val > 1000){
-		std::cout << "Error: invalid value => " << val << std::endl;
+		std::cout << "Error: to large a number" << std::endl;
 		return false;
 	} else if (val < 0){
 		std::cout << "Error: not a positive number." << std::endl;
@@ -65,7 +65,7 @@ bool		BitcoinExchange::checkEntry(const std::string& str){
 		else if (modelEntry[i] == '|' && str[i] == '|')
 			error--;
 	}
-	if (error > 0){
+	if (error > 0) {
 		std::cout << "Error: bad input => "<< str << std::endl;
 		return false;
 	}
@@ -105,36 +105,41 @@ void	BitcoinExchange::chargingData(std::string data){
 		}
 		nline++;
 	}
-
-	std::ofstream file("_data");
-
-	std::multimap<int, float>::iterator it;
-	for (it = this->data.begin(); it != this->data.end(); ++it) {
-		file << it->first << " : " << it->second << std::endl;
-	}
-	file.close();
 }
 
 
 void	BitcoinExchange::getResult(){
-
+	char			delimiter = '|';
+	size_t			pos;
 	std::ifstream	d_input;
 	std::string		line;
 	int				nline = 0;
+	int				dateInt;
+	float			value;
 
 	chargingData(this->_data);
 
 	d_input.open(this->_input.c_str());
-	
+
 	if (!d_input){
 		std::cerr << "Error: cannot open data file " << this->_input.c_str() << std::endl;
 		d_input.close();
 		return ;
 	}
 
-	while(std::getline(d_input, line)){
-		if (nline++ > 0 && checkEntry(line) && checkValues(line))
-			std::cout << line << std::endl;
-	}
+	std::multimap<int, float>::iterator it;
 
+	while(std::getline(d_input, line)){
+		pos = line.find(delimiter);
+		if (nline++ > 0 && checkEntry(line) && checkValues(line)){
+			dateInt = dateToInt(line.substr(0, pos).c_str());
+			value = std::atof(line.substr(pos + 1).c_str());
+			it = this->data.lower_bound(dateInt);
+			if (it != this->data.begin() && it != this->data.end()) {
+				--it;
+				std::cout << line.substr(0, pos) << " => " << value << " = " << value * it->second << std::endl;
+			} else
+				std::cout << line.substr(0, pos) << " => " << value << " = " << value * it->second << std::endl;
+		}
+	}
 }
