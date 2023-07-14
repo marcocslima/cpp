@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 20:33:26 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/14 07:52:15 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/14 08:09:48 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,9 @@ int		BitcoinExchange::dateToInt(std::string date){
 
 void	BitcoinExchange::chargingData(std::string data) {
 	Varbase vbase;
-	vbase.delimiter =  ',';
 
+	vbase.delimiter =  ',';
+	vbase.nline = 0;
 	vbase.d_input.open(data.c_str());
 	if (!vbase.d_input){
 		std::cerr << "Error: cannot open data file " << data << std::endl;
@@ -106,6 +107,7 @@ void	BitcoinExchange::chargingData(std::string data) {
 
 void	BitcoinExchange::getResult() {
 	Varbase vbase;
+
 	vbase.delimiter =  '|';
 	vbase.nline = 0;
 
@@ -129,9 +131,11 @@ void	BitcoinExchange::getResult() {
 			it = this->data.lower_bound(vbase.dateInt);
 			if (it != this->data.begin() && it != this->data.end()) {
 				--it;
-				std::cout << vbase.line.substr(0, vbase.pos) << " => " << vbase.value << " = " << vbase.value * it->second << std::endl;
+				std::cout << vbase.line.substr(0, vbase.pos) << " => " << vbase.value << " = "
+							<< vbase.value * it->second << std::endl;
 			} else
-				std::cout << vbase.line.substr(0, vbase.pos) << " => " << vbase.value << " = " << vbase.value * it->second << std::endl;
+				std::cout << vbase.line.substr(0, vbase.pos) << " => " << vbase.value << " = "
+							<< vbase.value * it->second << std::endl;
 		}
 	}
 	vbase.d_input.close();
