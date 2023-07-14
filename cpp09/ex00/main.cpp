@@ -18,7 +18,5 @@ int main(int argc, char *argv[])
 		return 1;
 	BitcoinExchange teste(argv[1]);
 	teste.getResult();
-
-	//comentário
 	return 0;
 }
