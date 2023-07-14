@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 20:33:26 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/14 07:25:26 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/14 07:52:15 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ bool		BitcoinExchange::checkValues(const std::string& str){
 	if ((month < 0 || month > 12) || (day < 0 || day > 31)) {
 		std::cout << "Error: bad input => " << str.substr(0, 10) << std::endl;
 		return false;
-	} else if (val == 0 || val > 1000){
+	} else if (val == 0 || val > 1000) {
 		std::cout << "Error: to large a number" << std::endl;
 		return false;
-	} else if (val < 0){
+	} else if (val < 0) {
 		std::cout << "Error: not a positive number." << std::endl;
 		return false;
 	} else
@@ -81,65 +81,58 @@ int		BitcoinExchange::dateToInt(std::string date){
 	return dInt;
 }
 
-void	BitcoinExchange::chargingData(std::string data){
-	char			delimiter = ',';
-	size_t			pos;
-	std::ifstream	d_entry;
-	int				nline = 0;
-	std::string		line;
-	int				dateInt;
-	float			value;
+void	BitcoinExchange::chargingData(std::string data) {
+	Varbase vbase;
+	vbase.delimiter =  ',';
 
-	d_entry.open(data.c_str());
-	if (!d_entry){
+	vbase.d_input.open(data.c_str());
+	if (!vbase.d_input){
 		std::cerr << "Error: cannot open data file " << data << std::endl;
-		d_entry.close();
+		vbase.d_input.close();
 		return ;
 	}
-	while(std::getline(d_entry, line)){
-		if (nline > 0 ){
-			pos = line.find(delimiter);
-			dateInt = dateToInt(line.substr(0, pos).c_str());
-			value = std::atof(line.substr(pos + 1).c_str());
-			this->data.insert(std::make_pair(dateInt, value));
+	while(std::getline(vbase.d_input, vbase.line)){
+		if (vbase.nline > 0 ){
+			vbase.pos = vbase.line.find(vbase.delimiter);
+			vbase.dateInt = dateToInt(vbase.line.substr(0, vbase.pos).c_str());
+			vbase.value = std::atof(vbase.line.substr(vbase.pos + 1).c_str());
+			this->data.insert(std::make_pair(vbase.dateInt, vbase.value));
 		}
-		nline++;
+		vbase.nline++;
 	}
+	vbase.d_input.close();
 }
 
 
-void	BitcoinExchange::getResult(){
-	char			delimiter = '|';
-	size_t			pos;
-	std::ifstream	d_input;
-	std::string		line;
-	int				nline = 0;
-	int				dateInt;
-	float			value;
+void	BitcoinExchange::getResult() {
+	Varbase vbase;
+	vbase.delimiter =  '|';
+	vbase.nline = 0;
 
 	chargingData(this->_data);
 
-	d_input.open(this->_input.c_str());
+	vbase.d_input.open(this->_input.c_str());
 
-	if (!d_input){
+	if (!vbase.d_input){
 		std::cerr << "Error: cannot open data file " << this->_input.c_str() << std::endl;
-		d_input.close();
+		vbase.d_input.close();
 		return ;
 	}
 
 	std::multimap<int, float>::iterator it;
 
-	while(std::getline(d_input, line)){
-		pos = line.find(delimiter);
-		if (nline++ > 0 && checkEntry(line) && checkValues(line)){
-			dateInt = dateToInt(line.substr(0, pos).c_str());
-			value = std::atof(line.substr(pos + 1).c_str());
-			it = this->data.lower_bound(dateInt);
+	while(std::getline(vbase.d_input, vbase.line)){
+		vbase.pos = vbase.line.find(vbase.delimiter);
+		if (vbase.nline++ > 0 && checkEntry(vbase.line) && checkValues(vbase.line)){
+			vbase.dateInt = dateToInt(vbase.line.substr(0, vbase.pos).c_str());
+			vbase.value = std::atof(vbase.line.substr(vbase.pos + 1).c_str());
+			it = this->data.lower_bound(vbase.dateInt);
 			if (it != this->data.begin() && it != this->data.end()) {
 				--it;
-				std::cout << line.substr(0, pos) << " => " << value << " = " << value * it->second << std::endl;
+				std::cout << vbase.line.substr(0, vbase.pos) << " => " << vbase.value << " = " << vbase.value * it->second << std::endl;
 			} else
-				std::cout << line.substr(0, pos) << " => " << value << " = " << value * it->second << std::endl;
+				std::cout << vbase.line.substr(0, vbase.pos) << " => " << vbase.value << " = " << vbase.value * it->second << std::endl;
 		}
 	}
+	vbase.d_input.close();
 }

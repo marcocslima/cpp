@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 20:22:06 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/14 07:31:08 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/14 07:41:25 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,16 @@
 #include <map>
 #include <fstream>
 #include <cstdlib>
+
+typedef struct {
+	char			delimiter;
+	size_t			pos;
+	std::ifstream	d_input;
+	int				nline;
+	std::string		line;
+	int				dateInt;
+	float			value;
+} Varbase;
 
 class BitcoinExchange
 {
