@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 20:33:26 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/15 10:51:30 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/15 11:05:30 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,6 @@ void	BitcoinExchange::getResult() {
 				}
 			} else {
 				rit = this->data.rbegin();
-				//rit--;
 				std::cout << vbase.line.substr(0, vbase.pos) << " => " << vbase.value << " = "
 							<< vbase.value * rit->second << std::endl;
 			}
