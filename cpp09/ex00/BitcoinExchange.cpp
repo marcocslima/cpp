@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 20:33:26 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/15 09:43:38 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/15 10:51:30 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ void	BitcoinExchange::getResult() {
 	}
 
 	std::multimap<int, float>::iterator it;
+	std::multimap<int, float>::reverse_iterator rit;
 
 	while(std::getline(vbase.d_input, vbase.line)){
 		vbase.pos = vbase.line.find(vbase.delimiter);
@@ -129,13 +130,20 @@ void	BitcoinExchange::getResult() {
 			vbase.dateInt = dateToInt(vbase.line.substr(0, vbase.pos).c_str());
 			vbase.value = std::atof(vbase.line.substr(vbase.pos + 1).c_str());
 			it = this->data.lower_bound(vbase.dateInt);
-			if (it != this->data.begin() && it != this->data.end() && it->first != vbase.dateInt) {
-				--it;
-				std::cout << vbase.line.substr(0, vbase.pos) << " => " << vbase.value << " = "
+			if (it != this->data.begin() && it != this->data.end()) {
+				if (it->first != vbase.dateInt){
+					--it;
+					std::cout << vbase.line.substr(0, vbase.pos) << " => " << vbase.value << " = "
 							<< vbase.value * it->second << std::endl;
+				} else {
+					std::cout << vbase.line.substr(0, vbase.pos) << " => " << vbase.value << " = "
+							<< vbase.value * it->second << std::endl;
+				}
 			} else {
+				rit = this->data.rbegin();
+				//rit--;
 				std::cout << vbase.line.substr(0, vbase.pos) << " => " << vbase.value << " = "
-							<< vbase.value * it->second << std::endl;
+							<< vbase.value * rit->second << std::endl;
 			}
 		}
 	}
