@@ -6,7 +6,7 @@
 #    By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 00:39:21 by mcesar-d          #+#    #+#              #
-#    Updated: 2023/07/16 00:02:30 by mcesar-d         ###   ########.fr        #
+#    Updated: 2023/07/16 00:05:37 by mcesar-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ fclean: clean
 re: fclean all
 
 val: all
-	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) input.txt
+	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) "2 3 * 5 +"
 
 run: all
 	./$(NAME)
