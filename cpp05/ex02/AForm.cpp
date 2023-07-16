@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 13:53:26 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/06/18 21:22:28 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/16 14:47:34 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 AForm::AForm(const std::string &name, int gradeToSign, int gradeToExecute) : _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute){
 	(void)gradeToExecute;
+	_signed = false;
 	if (gradeToSign < 1)
 		throw AForm::GradeTooHighException();
 	if (gradeToSign > 150)
