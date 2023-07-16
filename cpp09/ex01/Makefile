@@ -6,7 +6,7 @@
 #    By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 00:39:21 by mcesar-d          #+#    #+#              #
-#    Updated: 2023/07/15 14:29:30 by mcesar-d         ###   ########.fr        #
+#    Updated: 2023/07/15 23:34:13 by mcesar-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME = RPN
 # COMPILATION #
 
 CC = c++
-FLAGS = -g -Werror -Wextra -Wall -std=c++98
+FLAGS = -g -std=c++98 #-Werror -Wextra -Wall
 
 # DELETE #
 

@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 14:39:25 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/15 17:52:44 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/15 23:59:19 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,38 @@ RPN &RPN::operator=(RPN const &cpy){
 }
 
 void RPN::calculate(char c){
-	(void) c;
+
+	int operA;
+	int operB;
+
+	if (c == ' ')
+		return ;
+
+	if (nums.size() > 1) {
+		operB = nums.top();
+		nums.pop();
+		operA = nums.top();
+		nums.pop();
+		switch (c) {
+			case '+':
+				nums.push(operA + operB);
+				break;
+			case '-':
+				nums.push(operA - operB);
+				break;
+			case '*':
+				nums.push(operA * operB);
+				break;
+			case '/':
+				nums.push(operA / operB);
+				break;
+			default:
+				throw "Error: invalid operator";
+				break;
+		}
+	}
+	else
+		throw "Error: invalid input";
 }
 
 void RPN::getOperands(char *str){
