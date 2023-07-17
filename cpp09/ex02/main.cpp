@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 15:00:23 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/17 15:57:39 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/17 16:17:31 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	main(void)
 {
 	PmergeMe< int, std::vector<int> > pm;
 
-	pm.setBase(10);
+	pm.setBase(10,20);
+	pm.setBase(20,30);
+
 	return (0);
 }
