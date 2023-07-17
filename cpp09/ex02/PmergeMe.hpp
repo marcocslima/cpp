@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 14:37:16 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/17 15:43:42 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/17 15:57:21 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ template < typename T, typename Container = std::deque<T> >
 class PmergeMe : public std::deque< Container >
 {
 	private:
-		//int ** _base;
+		Container<T> _base;
 	public:
 	PmergeMe(){};
 	~PmergeMe(){};
@@ -33,6 +33,7 @@ class PmergeMe : public std::deque< Container >
 			*this = cpy;
 		return *this;
 	}
+	void setBase(int n){_base = n;}
 	typedef typename Container::iterator it;
 	it begin(){return this->c.begin();}
 	it end(){return this->c.end();}
