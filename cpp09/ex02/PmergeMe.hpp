@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 14:37:16 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/18 07:29:56 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/18 16:14:31 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class PmergeMe// : public std::deque< Container >
 	PmergeMe(){};
 	~PmergeMe(){};
 
-	PmergeMe(const PmergeMe &cpy){*this = cpy;}
+	//PmergeMe(const PmergeMe &cpy) : m_container(cpy.m_container){};
 	PmergeMe &operator=(const PmergeMe &cpy){
 		if (this != cpy)
 			*this = cpy;
@@ -42,3 +42,5 @@ class PmergeMe// : public std::deque< Container >
 	Iterator begin(){return m_container.begin();}
 	Iterator end(){return m_container.end();}
 };
+
+#include "PmergeMe.tpp"
