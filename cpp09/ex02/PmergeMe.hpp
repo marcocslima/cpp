@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 14:37:16 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/18 06:51:53 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/18 07:29:56 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,26 @@
 #include <algorithm>
 
 template < typename T, typename Container = std::deque<T> >
-class PmergeMe : public std::deque< Container >
+class PmergeMe// : public std::deque< Container >
 {
 	private:
-	
+		Container m_container;
 	public:
 	PmergeMe(){};
 	~PmergeMe(){};
 
 	PmergeMe(const PmergeMe &cpy){*this = cpy;}
 	PmergeMe &operator=(const PmergeMe &cpy){
-		if (this == cpy)
+		if (this != cpy)
 			*this = cpy;
 		return *this;
 	}
 
-	typedef typename Container::iterator it;
-	it begin(){return this->c.begin();}
-	it end(){return this->c.end();}
+	void addElement(const T& element) {
+		m_container.push_back(element);
+	}
+
+	typedef typename Container::iterator Iterator;
+	Iterator begin(){return m_container.begin();}
+	Iterator end(){return m_container.end();}
 };
