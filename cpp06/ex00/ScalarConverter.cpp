@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 06:47:15 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/01 20:42:09 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/18 14:09:44 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,16 @@
 ScalarConverter::ScalarConverter(void){}
 
 ScalarConverter::~ScalarConverter(void){}
+
+ScalarConverter::ScalarConverter(const ScalarConverter &cpy){
+	*this = cpy;
+}
+
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &cpy){
+	if (this == &cpy)
+		return (*this);
+	return (*this);
+}
 
 etype	ScalarConverter::verifyInput(std::string input){
 	if (isChar(input)) {
