@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 14:37:16 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/18 16:40:09 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/19 02:45:28 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,30 +17,29 @@
 #include <vector>
 #include <deque>
 #include <algorithm>
+#include <ostream>
 
 template < typename T, typename Container = std::deque<T> >
-class PmergeMe// : public std::deque< Container >
+class PmergeMe
 {
-	private:
-		Container m_container;
-	public:
-	PmergeMe(){};
-	~PmergeMe(){};
+private:
+	Container _container;
+	std::vector<Container> _pairs;
 
-	PmergeMe(const PmergeMe &cpy) : m_container(cpy.m_container){};
-	PmergeMe &operator=(const PmergeMe &cpy){
-		if (this != cpy)
-			*this = cpy;
-		return *this;
-	}
+public:
+	PmergeMe();
+	~PmergeMe();
 
-	void addElement(const T& element) {
-		m_container.push_back(element);
-	}
+	PmergeMe(const PmergeMe &cpy);
+	PmergeMe &operator=(const PmergeMe &cpy);
+
+	void addElement(const T& element);
+	void createPairs();
+	const std::vector<Container>& getPairs() const;
 
 	typedef typename Container::iterator Iterator;
-	Iterator begin(){return m_container.begin();}
-	Iterator end(){return m_container.end();}
+	Iterator begin();
+	Iterator end();
 };
 
 #include "PmergeMe.tpp"
