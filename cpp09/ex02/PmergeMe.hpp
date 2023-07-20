@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 14:37:16 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/19 02:45:28 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/19 02:58:30 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ class PmergeMe
 private:
 	Container _container;
 	std::vector<Container> _pairs;
-
 public:
 	PmergeMe();
 	~PmergeMe();
