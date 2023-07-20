@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 06:47:15 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/18 14:09:44 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/20 17:40:18 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,18 +77,16 @@ bool	ScalarConverter::isChar(const std::string input){
 	return false;
 }
 
-void	ScalarConverter::printChar(const std::string input){
-	int veriNum = static_cast<int>(atol(input.c_str()));
+void	ScalarConverter::printChar(const std::string input, int cod){
 	if (ScalarConverter::isFloat(input) || ScalarConverter::isDouble(input)) {
 		std::cout << "char: '*'" << std::endl;
 	} else if (ScalarConverter::isLiterals(input)
-		|| (!std::isprint(veriNum)
-		&& (veriNum <= 0 || veriNum > 255))) {
+		|| ((!std::isprint(input[0] - '0') && (cod < 0 || cod > 255)))) {
 			std::cout << "char: impossible" << std::endl;
-	} else if (!std::isprint(veriNum)) {
+	} else if (!std::isprint(cod)) {
 		std::cout << "char: Non displayable" << std::endl;
 	} else {
-		std::cout << "char: '" << static_cast<char>(veriNum) << "'" << std::endl;
+		std::cout << "char: '" << static_cast<char>(cod) << "'" << std::endl;
 	}
 }
 
@@ -181,14 +179,14 @@ void	ScalarConverter::printDouble(const std::string input){
 }
 
 void	ScalarConverter::print(const std::string input, etype type){
-	
-	int	retInt = input[0] -'0';
+
+	int retInt = static_cast<int>(input[0]);
 
 	std::ostringstream oss;
 	oss << retInt;
 	std::string stringValue = oss.str();
-	
-	ScalarConverter::printChar(input);
+
+	ScalarConverter::printChar(input, retInt);
 	if (type == CHAR) {
 		ScalarConverter::printInt(stringValue);
 		ScalarConverter::printFloat(stringValue);
