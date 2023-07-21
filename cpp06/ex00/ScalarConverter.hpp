@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 06:47:23 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/20 21:09:17 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/21 05:15:42 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,9 @@
 #define SCALARCONVERTER_HPP
 
 #include <iostream>
-#include <fstream>
-#include <cmath>
 #include <sstream>
 #include <iomanip>
 #include <climits>
-#include <string>
 #include <cstdlib>
 
 enum etype {
@@ -54,12 +51,6 @@ class ScalarConverter
 		ScalarConverter(const ScalarConverter &cpy);
 		ScalarConverter &operator=(const ScalarConverter &cpy);
 		static void		convert(const std::string input);
-
-	class SCException : public std::exception {
-		virtual const char *what() const throw(){
-			return "Error type";
-		}
-	};
 };
 
 #endif
