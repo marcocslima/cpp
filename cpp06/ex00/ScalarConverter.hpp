@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 06:47:23 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/20 17:22:26 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/20 21:09:17 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ class ScalarConverter
 		static bool		isInt(const std::string input);
 		static bool		isFloat(const std::string input);
 		static bool		isDouble(const std::string input);
-		static void		printChar(const std::string input, int cod);
+		static void		printChar(const std::string input, long long cod);
 		static void		printInt(const std::string input);
 		static void		printFloat(const std::string input);
 		static void		printDouble(const std::string input);

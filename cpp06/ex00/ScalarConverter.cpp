@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 06:47:15 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/20 17:40:18 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/20 21:41:50 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ etype	ScalarConverter::verifyInput(std::string input){
 	} else if (isLiterals(input)) {
 		return (LITERALS);
 	} else {
-		throw ScalarConverter::SCException();
 		return (EMPTY);
 	}
 }
@@ -77,11 +76,13 @@ bool	ScalarConverter::isChar(const std::string input){
 	return false;
 }
 
-void	ScalarConverter::printChar(const std::string input, int cod){
+void	ScalarConverter::printChar(const std::string input, long long cod){
 	if (ScalarConverter::isFloat(input) || ScalarConverter::isDouble(input)) {
 		std::cout << "char: '*'" << std::endl;
+	} else if (cod < INT_MIN || cod > INT_MAX) {
+			std::cout << "char: impossible" << std::endl;
 	} else if (ScalarConverter::isLiterals(input)
-		|| ((!std::isprint(input[0] - '0') && (cod < 0 || cod > 255)))) {
+		|| ((!std::isprint(cod) && (cod < 0 || cod > 255)))) {
 			std::cout << "char: impossible" << std::endl;
 	} else if (!std::isprint(cod)) {
 		std::cout << "char: Non displayable" << std::endl;
@@ -180,13 +181,18 @@ void	ScalarConverter::printDouble(const std::string input){
 
 void	ScalarConverter::print(const std::string input, etype type){
 
-	int retInt = static_cast<int>(input[0]);
+	long long cod;
+
+	if (type == CHAR)
+		cod = static_cast<int>(input[0]);
+	else
+		cod = atol(input.c_str());
 
 	std::ostringstream oss;
-	oss << retInt;
+	oss << cod;
 	std::string stringValue = oss.str();
 
-	ScalarConverter::printChar(input, retInt);
+	ScalarConverter::printChar(input, cod);
 	if (type == CHAR) {
 		ScalarConverter::printInt(stringValue);
 		ScalarConverter::printFloat(stringValue);
@@ -201,6 +207,11 @@ void	ScalarConverter::print(const std::string input, etype type){
 void	ScalarConverter::convert(const std::string input){
 
 	etype	type = ScalarConverter::verifyInput(input);
+
+	if(type == EMPTY){
+		std::cerr << "Error: Invalid entry!..." << std::endl;
+		return ;
+	}
 
 	switch (type) {
 		case CHAR:
