@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 14:37:16 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/21 05:30:18 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/22 10:37:59 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@
 #include <deque>
 #include <algorithm>
 #include <ostream>
+#include <utility>
 
-template < typename T, typename Container = std::deque<T> >
 class PmergeMe
 {
 private:
-	Container _container;
-	std::vector<Container> _pairs;
+	std::vector<std::pair<int, int> >	_vector;
+	std::deque<std::pair<int, int> >	_deque;
+	int									_left_over;
 public:
 	PmergeMe();
 	~PmergeMe();
@@ -32,13 +33,6 @@ public:
 	PmergeMe(const PmergeMe &cpy);
 	PmergeMe &operator=(const PmergeMe &cpy);
 
-	void addElement(const T& element);
-	void createPairs();
-	const std::vector<Container>& getPairs() const;
+	void createPairs(const int* entry, int n);
 
-	typedef typename Container::iterator Iterator;
-	Iterator begin();
-	Iterator end();
 };
-
-#include "PmergeMe.tpp"
