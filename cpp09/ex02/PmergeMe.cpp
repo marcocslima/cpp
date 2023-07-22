@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 08:35:15 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/22 10:37:53 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/22 10:47:28 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &cpy) {
 
 void PmergeMe::createPairs(const int* entry, int n) {
 
-    if (n % 2 != 0){
+	if (n % 2 != 0){
 		_left_over = entry[n - 1];
 		n--;
 	}
