@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 08:35:15 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/22 10:47:28 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/22 15:56:06 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,29 @@ void PmergeMe::createPairs(const int* entry, int n) {
 		_vector.push_back(newPair);
 		_deque.push_back(newPair);
 	}
+}
+
+void PmergeMe::sortPairs(){
+	int tmp;
+
+	for (_d_it = _deque.begin(); _d_it != _deque.end(); _d_it++)
+		if (_d_it->second < _d_it->first){
+			tmp = _d_it->second;
+			_d_it->second = _d_it->first;
+			_d_it->first = tmp;
+		}
+	for (_v_it = _vector.begin(); _v_it != _vector.end(); _v_it++)
+		if (_v_it->second < _v_it->first){
+			tmp = _v_it->second;
+			_v_it->second = _v_it->first;
+			_v_it->first = tmp;
+		}
+
 	for (std::deque< std::pair<int, int> >::iterator it = _deque.begin(); it != _deque.end(); it++)
 		std::cout << "(" << it->first << " , " << it->second << ")" << std::endl;
 	std::cout << _left_over << std::endl;
 }
 
+void PmergeMe::sortByLarger(){
+	
+}
