@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 08:35:15 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/23 13:44:55 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/23 21:31:19 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,50 +40,6 @@ void PmergeMe::createPairs(const int* entry, int n) {
 	}
 }
 
-template < typename Container >
-void PmergeMe::mergeSort(Container& input){
-	if (input.size() <= 1)
-		return;
-	Container left, right;
-	int mid = input.size() / 2;
-	typename Container::iterator it = input.begin();
-	for (int i = 0; i < mid; i++, ++it)
-		left.push_back(*it);
-	for (int i = mid; i < (int)input.size(); i++, ++it)
-		right.push_back(*it);
-	mergeSort(left);
-	mergeSort(right);
-
-	merge(input, left, right);
-}
-
-template < typename Container >
-void PmergeMe::merge(Container& input, Container& left, Container& right){
-	typename Container::iterator it(input.begin()), it_l(left.begin()), it_r(right.begin());
-
-	while (it_l!= left.end() && it_r!= right.end()){
-		if (it_l->second < it_r->second){
-			*it = *it_l;
-			++it;
-			++it_l;
-		} else {
-			*it = *it_r;
-			++it;
-			++it_r;
-		}
-	}
-	while (it_l != left.end()){
-		*it = *it_l;
-		++it;
-		++it_l;
-	}
-	while (it_r!= right.end()){
-		*it = *it_r;
-		++it;
-		++it_r;
-	}
-}
-
 void PmergeMe::sortPairs(){
 	int tmp;
 
@@ -103,8 +59,7 @@ void PmergeMe::sortPairs(){
 	mergeSort(_deque);
 	mergeSort(_vector);
 
-	for (std::deque< std::pair<int, int> >::iterator it = _deque.begin(); it != _deque.end(); it++)
-		std::cout << "(" << it->first << " , " << it->second << ")" << std::endl;
-	std::cout << _left_over << std::endl;
+	createSeq(_deque);
+	std::cout << "---------------------------" << std::endl;
+	createSeq(_vector);
 }
-

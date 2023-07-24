@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 14:37:16 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/23 13:38:37 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/23 21:13:02 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,15 @@ public:
 
 	void	createPairs(const int* entry, int n);
 	void	sortPairs();
-	void	mergeSort();
 
 	template < typename Container >
 	void mergeSort(Container& input);
 
 	template < typename Container >
 	void merge(Container& input, Container& left, Container& right);
+
+	template < typename Container >
+	void createSeq(Container& input);
 };
+
+#include "PmergeMe.tpp"
