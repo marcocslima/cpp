@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 14:37:16 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/23 21:13:02 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/24 09:42:55 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ private:
 	int												_left_over;
 	std::vector< std::pair<int, int> >				_vector;
 	std::deque< std::pair<int, int> >				_deque;
-	std::deque< std::pair<int, int> >::iterator		_d_it;
-	std::vector< std::pair<int, int> >::iterator	_v_it;
 public:
 	PmergeMe();
 	~PmergeMe();
@@ -35,8 +33,10 @@ public:
 	PmergeMe(const PmergeMe &cpy);
 	PmergeMe &operator=(const PmergeMe &cpy);
 
-	void	createPairs(const int* entry, int n);
-	void	sortPairs();
+	void	initSort(const int* entry, int n);
+
+	template < typename Container >
+	void	sortPairs(Container& input);
 
 	template < typename Container >
 	void mergeSort(Container& input);

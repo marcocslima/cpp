@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 15:00:23 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/23 12:45:25 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/24 09:41:19 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int main(int argc, char* argv[]) {
 
 	int e = 0;
 	int arraySize;
-	int pairsSize;
 	int entry[argc - 1];
 	PmergeMe pm;
 
@@ -27,15 +26,7 @@ int main(int argc, char* argv[]) {
 
 	arraySize = sizeof(entry) / sizeof(entry[0]);
 
-	if(arraySize % 2 != 0)
-		pairsSize = (arraySize - 1) / 2;
-	else
-		pairsSize = arraySize / 2;
-
-	std::cout << pairsSize << std::endl;
-	
-	pm.createPairs(entry, arraySize);
-	pm.sortPairs();
+	pm.initSort(entry, arraySize);
 
 	return 0;
 }
