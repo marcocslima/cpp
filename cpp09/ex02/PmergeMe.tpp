@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 20:45:53 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/25 16:59:22 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/25 17:03:39 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ void PmergeMe::createSeq(Container& input, std::string Name){
 	int					i = 0;
 	int					iter = 0;
 	int					jacobIndex = 3;
-	std::string			last = "default";
 	std::vector<int>	seq;
 	std::vector<int>	pend;
 	std::vector<int>	indexSeq;
@@ -98,7 +97,6 @@ void PmergeMe::createSeq(Container& input, std::string Name){
 		++it;
 		++i;
 	}
-	//seq.insert(seq.begin(), pend[0]);
 
 	indexSeq.insert(indexSeq.begin(), 1);
 
@@ -106,17 +104,15 @@ void PmergeMe::createSeq(Container& input, std::string Name){
 
 	while (iter <= (int)pend.size()){
 		int item;
-		if (jacobInsSeq.size() != 0 && last != "jacob"){
+		if (jacobInsSeq.size() != 0){
 			indexSeq.push_back(jacobInsSeq[0]);
 			item = pend.at(jacobInsSeq[0] - 1);
 			jacobInsSeq.pop_back();
-			last = "jacob";
 		} else {
 			if (valExists(indexSeq, iter))
 				iter++;
 			item = (iter - 1 <= 0) ? pend.at(0) : pend.at(iter - 1);
 			indexSeq.push_back(iter);
-			last = "not-jacob";
 		}
 		std::vector<int>::iterator it_s = std::lower_bound(seq.begin(), seq.end(), item);
 		int insertIndex = std::distance(seq.begin(), it_s);
