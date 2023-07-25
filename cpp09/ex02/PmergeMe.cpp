@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 08:35:15 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/25 05:32:23 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/25 14:57:06 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &cpy) {
 
 void PmergeMe::initSort(const int* entry, int n) {
 
+	double	timer;
+
+	for (int i = 0; i < n; i++)
+		std::cout << entry[i] << " ";
+	std::cout << std::endl;
+
 	if (n % 2 != 0){
 		_left_over = entry[n - 1];
 		n--;
@@ -39,8 +45,15 @@ void PmergeMe::initSort(const int* entry, int n) {
 		_deque.push_back(newPair);
 	}
 
+	clock_t start = clock();
 	sortPairs(_vector, "vector");
+	timer = (double)(clock() - start);
+	std::cout << "Time to process a range of " << n << " elements with std::vector : " << timer << " ms" << std::endl;
+
+	start = clock();
 	sortPairs(_deque, "deque");
+	timer = (double)(clock() - start);
+	std::cout << "Time to process a range of " << n << " elements with std::deque : " << timer << " ms" << std::endl;
 }
 
 int PmergeMe::jacobsthal(int n){
