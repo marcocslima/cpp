@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 08:35:15 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/24 21:08:38 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/24 22:13:48 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int PmergeMe::jacobsthal(int n){
 		return 0;
 	if (n == 1)
 		return 1;
-	return jacobsthal(n - 1) + jacobsthal(n - 2);
+	return jacobsthal(n - 1) + 2 * jacobsthal(n - 2);
 }
 
 std::vector<int> PmergeMe::buildJacobInSeq(std::vector<int>& arr) {
