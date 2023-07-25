@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 08:35:15 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/24 22:13:48 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/25 05:32:23 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void PmergeMe::initSort(const int* entry, int n) {
 		_deque.push_back(newPair);
 	}
 
-	sortPairs(_vector);
-	sortPairs(_deque);
+	sortPairs(_vector, "vector");
+	sortPairs(_deque, "deque");
 }
 
 int PmergeMe::jacobsthal(int n){

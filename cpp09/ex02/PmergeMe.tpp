@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 20:45:53 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/25 04:53:06 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/25 05:49:38 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "PmergeMe.hpp"
 
 template < typename Container >
-void PmergeMe::sortPairs(Container& input){
+void PmergeMe::sortPairs(Container& input, std::string Name){
 	int tmp;
 	typename Container::iterator it;
 
@@ -27,7 +27,7 @@ void PmergeMe::sortPairs(Container& input){
 		}
 
 	mergeSort(input);
-	createSeq(input);
+	createSeq(input, Name);
 }
 
 template < typename Container >
@@ -75,10 +75,20 @@ void PmergeMe::merge(Container& input, Container& left, Container& right){
 }
 
 template < typename Container >
-void PmergeMe::createSeq(Container& input){
+void PmergeMe::createSeq(Container& input, std::string Name){
 	int	i = 0;
+	int iter = 0;
 	std::vector<int> seq;
 	std::vector<int> pend;
+	std::vector<int> indexSeq;
+
+	if (Name == "deque"){
+		std::cout << Name << std::endl;
+		std::deque<int> seq;
+		std::deque<int> pend;
+		std::deque<int> indexSeq;
+	} else
+		std::cout << Name << std::endl;
 
 	typename Container::iterator it(input.begin());
 
@@ -90,10 +100,6 @@ void PmergeMe::createSeq(Container& input){
 	}
 	seq.insert(seq.begin(), pend[0]);
 
-	int iter = 0;
-	int jacobindex = 3;
-	std::vector<int> indexSeq;
-	std::string last = "default";
 
 	indexSeq.insert(indexSeq.begin(), 1);
 
@@ -101,17 +107,15 @@ void PmergeMe::createSeq(Container& input){
 
 	while (iter <= (int)pend.size()){
 		int item;
-		if (jacobInsSeq.size() != 0 && last != "jacob"){
+		if (jacobInsSeq.size() != 0){
 			indexSeq.push_back(jacobInsSeq[0]);
 			item = pend.at(jacobInsSeq[0] - 1);
 			jacobInsSeq.pop_back();
-			last = "jacob";
 		} else {
 			if (valExists(indexSeq, iter))
 				iter++;
 			item = pend.at(iter - 1);
 			indexSeq.push_back(iter);
-			last = "not-jacob";
 		}
 		std::vector<int>::iterator it_s = std::lower_bound(seq.begin(), seq.end(), item);
 		int insertIndex = std::distance(seq.begin(), it_s);
@@ -119,7 +123,6 @@ void PmergeMe::createSeq(Container& input){
 		seq.insert(seq.begin() + insertIndex, item);
 
 		iter++;
-		jacobindex++;
 	}
 
 	if (_left_over != -1){

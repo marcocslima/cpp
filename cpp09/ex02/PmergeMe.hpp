@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 14:37:16 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/25 05:07:17 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/25 05:33:20 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ public:
 	bool				valExists(const std::vector<int>& vec, int val);
 
 	template < typename Container >
-	void	sortPairs(Container& input);
+	void	sortPairs(Container& input, std::string Name);
 
 	template < typename Container >
 	void mergeSort(Container& input);
@@ -48,7 +48,7 @@ public:
 	void merge(Container& input, Container& left, Container& right);
 
 	template < typename Container >
-	void createSeq(Container& input);
+	void createSeq(Container& input, std::string Name);
 };
 
 #include "PmergeMe.tpp"
