@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 14:37:16 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/24 09:42:55 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/24 20:59:39 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ public:
 	PmergeMe(const PmergeMe &cpy);
 	PmergeMe &operator=(const PmergeMe &cpy);
 
-	void	initSort(const int* entry, int n);
+	void				initSort(const int* entry, int n);
+	std::vector<int>	buildJacobInSeq(std::vector<int>& arr);
+	int					jacobsthal(int n);
+	bool				valExists(const std::vector<int>& vec, int val);
 
 	template < typename Container >
 	void	sortPairs(Container& input);

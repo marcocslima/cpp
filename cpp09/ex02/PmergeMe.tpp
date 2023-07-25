@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 20:45:53 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/24 09:51:20 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/24 22:04:39 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,25 +77,55 @@ void PmergeMe::merge(Container& input, Container& left, Container& right){
 template < typename Container >
 void PmergeMe::createSeq(Container& input){
 	int	i = 0;
-	int	len = input.size();
-	int	pend[(int)len];
-
 	std::vector<int> seq;
+	std::vector<int> pend;
 
 	typename Container::iterator it(input.begin());
 
 	while (it!= input.end()){
 		seq.insert(seq.begin() + i, it->second);
-		pend[i] = it->first;
+		pend.insert(pend.begin() + i, it->first);
 		++it;
 		++i;
 	}
+	seq.insert(seq.begin(), pend[0]);
 
+	int iter = 0;
+	int jacobindex = 3;
+	std::vector<int> indexSeq;
+	std::string last = "default";
 
+	indexSeq.insert(indexSeq.begin(), 1);
 
+	std::vector<int> jacobInsSeq = buildJacobInSeq(pend);
 
-	for (i = 0; i < (int)len; i++)
-		std::cout << "seq: " << seq[i] << std::endl;
-	for (i = 0; i < (int)len; i++)
-		std::cout << "pend: " << pend[i] << std::endl;
+	while (iter <= (int)pend.size()){
+		int item;
+		if (jacobInsSeq.size() != 0 && last != "jacob"){
+			indexSeq.push_back(jacobInsSeq[0]);
+			item = pend.at(jacobInsSeq[0] - 1);
+			jacobInsSeq.pop_back();
+			last = "jacob";
+		} else {
+			if (valExists(indexSeq, iter))
+				iter++;
+			item = pend.at(iter + 1);
+			indexSeq.push_back(iter);
+			last = "not-jacob";
+		}
+		std::vector<int>::iterator it_s = std::lower_bound(seq.begin(), seq.end(), item);
+		int insertIndex = std::distance(seq.begin(), it_s);
+		
+		std::cout << insertIndex << std::endl;
+
+		iter++;
+		jacobindex++;
+	}
+
+	//for (i = 0; i < (int)jacobInsSeq.size(); i++)
+	//	std::cout << "jacob: " << jacobInsSeq[i] << std::endl;
+	// for (i = 0; i < (int)seq.size(); i++)
+	// 	std::cout << "seq: " << seq[i] << std::endl;
+	// for (i = 0; i < (int)pend.size(); i++)
+	// 	std::cout << "pend: " << pend[i] << std::endl;
 }

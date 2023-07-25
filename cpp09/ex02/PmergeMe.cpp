@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 08:35:15 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/24 09:36:55 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/24 21:08:38 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,33 @@ void PmergeMe::initSort(const int* entry, int n) {
 
 	sortPairs(_vector);
 	sortPairs(_deque);
+}
+
+int PmergeMe::jacobsthal(int n){
+	if (n == 0)
+		return 0;
+	if (n == 1)
+		return 1;
+	return jacobsthal(n - 1) + jacobsthal(n - 2);
+}
+
+std::vector<int> PmergeMe::buildJacobInSeq(std::vector<int>& arr) {
+	int					i = 0;
+	int					size = arr.size();
+	int					jacobIndex = 3;
+	std::vector<int>	end_seq;
+	
+	while (jacobsthal(jacobIndex) < size - 1) {
+		end_seq.insert(end_seq.begin() + i, jacobsthal(jacobIndex));
+		jacobIndex += 1;
+		i++;
+	}
+	return end_seq;
+}
+
+bool PmergeMe::valExists(const std::vector<int>& vec, int val){
+	for (int i = 0; i < (int)vec.size(); i++)
+		if (vec[i] == val)
+			return true;
+	return false;
 }
