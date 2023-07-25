@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 20:45:53 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/24 22:19:11 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/25 04:53:06 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,16 +116,18 @@ void PmergeMe::createSeq(Container& input){
 		std::vector<int>::iterator it_s = std::lower_bound(seq.begin(), seq.end(), item);
 		int insertIndex = std::distance(seq.begin(), it_s);
 		
-		std::cout << insertIndex << std::endl;
+		seq.insert(seq.begin() + insertIndex, item);
 
 		iter++;
 		jacobindex++;
 	}
 
-	//for (i = 0; i < (int)jacobInsSeq.size(); i++)
-	//	std::cout << "jacob: " << jacobInsSeq[i] << std::endl;
-	// for (i = 0; i < (int)seq.size(); i++)
-	// 	std::cout << "seq: " << seq[i] << std::endl;
-	// for (i = 0; i < (int)pend.size(); i++)
-	// 	std::cout << "pend: " << pend[i] << std::endl;
+	if (_left_over != -1){
+		std::vector<int>::iterator it_s = std::lower_bound(seq.begin(), seq.end(), _left_over);
+		int insertIndex = std::distance(seq.begin(), it_s);
+		seq.insert(seq.begin() + insertIndex, _left_over);
+	}
+	for (i = 0; i < (int)seq.size(); i++)
+		std::cout << seq[i] << " ";
+	std::cout << std::endl;
 }
