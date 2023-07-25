@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 20:45:53 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/24 22:04:39 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/24 22:19:11 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void PmergeMe::createSeq(Container& input){
 		} else {
 			if (valExists(indexSeq, iter))
 				iter++;
-			item = pend.at(iter + 1);
+			item = pend.at(iter - 1);
 			indexSeq.push_back(iter);
 			last = "not-jacob";
 		}
