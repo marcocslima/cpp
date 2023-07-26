@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 15:00:23 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/25 21:39:54 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/26 14:40:15 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main(int argc, char* argv[]) {
 	for (int i = 1; i <= argc - 1; i++){
 		int val = std::atoi(argv[i]);
 		if (val < INT_MIN || val > INT_MAX || val < 0) {
-			std::cout << "Error" << std::endl;
+			std::cout << "Error: accept only positive INT !..." << std::endl;
 			return 1;
 		}
 		entry[e++] = val;
