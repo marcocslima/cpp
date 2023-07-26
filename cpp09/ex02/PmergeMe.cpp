@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 08:35:15 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/25 21:15:32 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/26 10:17:26 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,15 @@ void PmergeMe::initSort(const int* entry, int n) {
 	clock_t start = clock();
 	sortPairs(_vector, "vector");
 	timer = (double)(clock() - start);
+
+	if (s > 20){
+		s = 4;
+		bigsig = "[...]";
+	}
+	for (int i = 0; i < s; i++)
+		std::cout << _sorted_vector[i] << " ";
+	std::cout << bigsig << std::endl;
+	
 	std::cout << "Time to process a range of " << n << " elements with std::vector : " << timer << " ms" << std::endl;
 
 	start = clock();

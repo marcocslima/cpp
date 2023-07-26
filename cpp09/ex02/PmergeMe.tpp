@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 20:45:53 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/25 21:10:42 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/26 10:16:11 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,15 +133,8 @@ void PmergeMe::createSeq(Container& input, std::string Name){
 		}
 	}
 
-	if (Name == "vector"){
-		int s = (int)seq.size();
-		std::string bigsig = "";
-		if (s > 20){
-			s = 4;
-			bigsig = "[...]";
-		}
-		for (i = 0; i < s; i++)
-			std::cout << seq[i] << " ";
-		std::cout << bigsig << std::endl;
-	}
+	if (Name == "vector")
+		_sorted_vector.assign(seq.begin(), seq.end());
+	if (Name == "deque")
+		_sorted_deque.assign(seq.begin(), seq.end());
 }

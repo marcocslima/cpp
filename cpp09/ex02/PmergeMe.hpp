@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 14:37:16 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/25 21:18:57 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/26 10:17:05 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ private:
 	int									_size;
 	std::vector< std::pair<int, int> >	_vector;
 	std::deque< std::pair<int, int> >	_deque;
+	std::vector<int>					_sorted_vector;
+	std::deque<int>						_sorted_deque;
 public:
 	PmergeMe();
 	PmergeMe(int size);
