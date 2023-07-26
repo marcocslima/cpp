@@ -6,11 +6,11 @@
 #    By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 00:39:21 by mcesar-d          #+#    #+#              #
-#    Updated: 2023/07/09 20:18:42 by mcesar-d         ###   ########.fr        #
+#    Updated: 2023/07/26 08:26:21 by mcesar-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = btc
+NAME = mutantstack
 
 # LIBRARY #
 
