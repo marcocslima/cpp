@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 08:35:15 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/26 14:35:36 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/26 14:44:36 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,16 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &cpy) {
 
 void PmergeMe::initSort(const int* entry, int n) {
 
+	int		i;
 	double	timer;
-
 	int s = _size;
+
 	std::string bigsig = "";
 	if (s > 20){
 		s = 4;
 		bigsig = "[...]";
 	}
-	for (int i = 0; i < s; i++)
+	for (i = 0; i < s; i++)
 		std::cout << entry[i] << " ";
 	std::cout << bigsig << std::endl;
 
@@ -47,7 +48,7 @@ void PmergeMe::initSort(const int* entry, int n) {
 		_left_over = entry[n - 1];
 		n--;
 	}
-	for (int i = 0; i < n; i += 2) {
+	for (i = 0; i < n; i += 2) {
 		std::pair<int, int> newPair(entry[i], entry[i + 1]);
 		_vector.push_back(newPair);
 		_deque.push_back(newPair);
@@ -61,7 +62,7 @@ void PmergeMe::initSort(const int* entry, int n) {
 		s = 4;
 		bigsig = "[...]";
 	}
-	for (int i = 0; i < s; i++)
+	for (i = 0; i < s; i++)
 		std::cout << _sorted_vector[i] << " ";
 	std::cout << bigsig << std::endl;
 	
