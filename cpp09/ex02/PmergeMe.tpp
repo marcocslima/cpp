@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 20:45:53 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/25 17:03:39 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/25 21:10:42 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ template < typename Container >
 void PmergeMe::createSeq(Container& input, std::string Name){
 	int					i = 0;
 	int					iter = 0;
-	int					jacobIndex = 3;
 	std::vector<int>	seq;
 	std::vector<int>	pend;
 	std::vector<int>	indexSeq;
@@ -98,40 +97,51 @@ void PmergeMe::createSeq(Container& input, std::string Name){
 		++i;
 	}
 
-	indexSeq.insert(indexSeq.begin(), 1);
+	if(_size == 1)
+		seq.push_back(_left_over);
+	else if (_size < 4){
+		seq.push_back(pend.at(0));
+		if(_left_over != -1)
+			seq.push_back(_left_over);
+		std::sort(seq.begin(),seq.end());
+	} else {
+		indexSeq.insert(indexSeq.begin(), 1);
+		std::vector<int> jacobInsSeq = buildJacobInSeq(pend);
 
-	std::vector<int> jacobInsSeq = buildJacobInSeq(pend);
-
-	while (iter <= (int)pend.size()){
-		int item;
-		if (jacobInsSeq.size() != 0){
-			indexSeq.push_back(jacobInsSeq[0]);
-			item = pend.at(jacobInsSeq[0] - 1);
-			jacobInsSeq.pop_back();
-		} else {
-			if (valExists(indexSeq, iter))
-				iter++;
-			item = (iter - 1 <= 0) ? pend.at(0) : pend.at(iter - 1);
-			indexSeq.push_back(iter);
+		while (iter <= (int)pend.size()){
+			int item;
+			if (jacobInsSeq.size() != 0){
+				indexSeq.push_back(jacobInsSeq[0]);
+				item = pend.at(jacobInsSeq[0] - 1);
+				jacobInsSeq.pop_back();
+			} else {
+				if (valExists(indexSeq, iter))
+					iter++;
+				item = (iter - 1 <= 0) ? pend.at(0) : pend.at(iter - 1);
+				indexSeq.push_back(iter);
+			}
+			std::vector<int>::iterator it_s = std::lower_bound(seq.begin(), seq.end(), item);
+			int insertIndex = std::distance(seq.begin(), it_s);
+			seq.insert(seq.begin() + insertIndex, item);
+			iter++;
 		}
-		std::vector<int>::iterator it_s = std::lower_bound(seq.begin(), seq.end(), item);
-		int insertIndex = std::distance(seq.begin(), it_s);
-		
-		seq.insert(seq.begin() + insertIndex, item);
 
-		iter++;
-		jacobIndex++;
+		if (_left_over != -1){
+			std::vector<int>::iterator it_s = std::lower_bound(seq.begin(), seq.end(), _left_over);
+			int insertIndex = std::distance(seq.begin(), it_s);
+			seq.insert(seq.begin() + insertIndex, _left_over);
+		}
 	}
 
-	if (_left_over != -1){
-		std::vector<int>::iterator it_s = std::lower_bound(seq.begin(), seq.end(), _left_over);
-		int insertIndex = std::distance(seq.begin(), it_s);
-		seq.insert(seq.begin() + insertIndex, _left_over);
-	}
-	
 	if (Name == "vector"){
-		for (i = 0; i < (int)seq.size(); i++)
+		int s = (int)seq.size();
+		std::string bigsig = "";
+		if (s > 20){
+			s = 4;
+			bigsig = "[...]";
+		}
+		for (i = 0; i < s; i++)
 			std::cout << seq[i] << " ";
-		std::cout << std::endl;
+		std::cout << bigsig << std::endl;
 	}
 }

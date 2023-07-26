@@ -6,13 +6,15 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 08:35:15 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/25 14:57:06 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/25 21:15:32 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 PmergeMe::PmergeMe() : _left_over(-1){}
+
+PmergeMe::PmergeMe(int size) : _left_over(-1), _size(size){};
 
 PmergeMe::~PmergeMe() {}
 
@@ -31,9 +33,15 @@ void PmergeMe::initSort(const int* entry, int n) {
 
 	double	timer;
 
-	for (int i = 0; i < n; i++)
+	int s = _size;
+	std::string bigsig = "";
+	if (s > 20){
+		s = 4;
+		bigsig = "[...]";
+	}
+	for (int i = 0; i < s; i++)
 		std::cout << entry[i] << " ";
-	std::cout << std::endl;
+	std::cout << bigsig << std::endl;
 
 	if (n % 2 != 0){
 		_left_over = entry[n - 1];
