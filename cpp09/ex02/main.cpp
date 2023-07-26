@@ -6,7 +6,7 @@
 /*   By: mcesar-d <mcesar-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 15:00:23 by mcesar-d          #+#    #+#             */
-/*   Updated: 2023/07/25 21:29:06 by mcesar-d         ###   ########.fr       */
+/*   Updated: 2023/07/25 21:39:54 by mcesar-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ int main(int argc, char* argv[]) {
 	int e = 0;
 	int arraySize;
 	int entry[argc - 1];
+
+	if (argc < 2) {
+		std::cout << "Error: input a number INT positive seq with at least one number !..." << std::endl;
+		return 1;
+	}
 
 	for (int i = 1; i <= argc - 1; i++){
 		int val = std::atoi(argv[i]);
